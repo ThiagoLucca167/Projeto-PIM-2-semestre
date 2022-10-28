@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1666792884 source:c:\users\thiag\desktop\projeto-pim-2-semestre\provedora de internet\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1666792884 source:c:\users\thiag\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.c
+	<stdio.h>
+	<stdlib.h>
+
