@@ -10,12 +10,14 @@
     int usuario[100];
     char nome[30];
     char cpf[14];
+    char email[80];
     char telefone[20];
     char rua[50];
     char bairro[50];
     char cep[9];
     char numero[20];
-    char email[80];
+    char login[20];
+    char senha[20];
     }clientes;
 
 
@@ -43,6 +45,7 @@ void funcaoCliente()
     case 2:
         loginCliente();
         break;
+
     default:
         printf("selecione uma opção valida");
 
@@ -51,6 +54,24 @@ void funcaoCliente()
 
 void loginCliente()
 {
+    char login[15];
+    char senha[15];
+
+    printf("Digite o Login: ");
+    scanf("%s", &login);
+
+    printf("Digite a Senha: ");
+    scanf("%s", &senha);
+
+    if (strcmp(login, maximo[TAMANHO].login) == 0 && strcmp(senha,  maximo[TAMANHO].senha) == 0)
+
+        printf("\n\nLOGADO!\n\n");
+
+    else
+
+        printf("\n\nDADOS INVALIDOS!\n\n");
+
+
 
 }
 
@@ -77,10 +98,16 @@ void adicionar()
         {
           int i = 0;
 
-          for(i=1;i <=2;i++)
+          for(i=1;i <=1;i++)
           {
             fprintf(funCliente,"\n\nUsuario de numero: %d \n",rand() % 1000); // gerar um numero aleatorio para o usuario
-
+            printf("\n\tCADASTRO...: \n");
+            printf("SELECIONE UM NOME DE USUÁRIO: ");
+            gets(maximo[contador].login);
+            fprintf(funCliente,"Usuário: %s\n",maximo[contador].login);
+            printf("SENHA: ");
+            gets(maximo[contador].senha);
+            fprintf(funCliente,"Senha: %s\n",maximo[contador].senha);
             printf("Digite seu Nome: ");
             gets(maximo[contador].nome);
             fprintf(funCliente,"Nome: %s\n",maximo[contador].nome);
