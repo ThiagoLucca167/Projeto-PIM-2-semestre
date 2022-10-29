@@ -4,7 +4,7 @@
 #include "funcaoCliente.h"
 #include <locale.h>
 
-int main()
+int WinMain()
 {
     setlocale(LC_ALL, "");
 

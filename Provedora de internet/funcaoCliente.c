@@ -7,10 +7,15 @@
 #define TAMANHO 100
 
     typedef struct clientesArq{
-    char nome[50];
+    int usuario[100];
+    char nome[30];
+    char cpf[14];
     char telefone[20];
+    char rua[50];
+    char bairro[50];
+    char cep[9];
+    char numero[20];
     char email[80];
-    char usuario[0];
     }clientes;
 
 
@@ -57,7 +62,6 @@ void cadastroCliente()
 void adicionar()
 {
     int contador=0, voltar;
-    char opcoes = 's';
 
     funCliente =fopen("Clientes.txt", "a");
     if(funCliente == NULL){
@@ -65,24 +69,56 @@ void adicionar()
         getch();
         exit(1);
     }
-    while ((contador < TAMANHO))
+    while (contador < TAMANHO)
     {
         printf("VAMOS DAR INICIO NO CADASTRO\n");
         gets(maximo[contador].usuario);
-        printf("Digite seu nome: ");
-        gets(maximo[contador].nome);
-        printf("Digite seu email: ");
-        gets(maximo[contador].email);
-        printf("Digite seu numero: ");
-        gets(maximo[contador].telefone);
-
-        voltar = fwrite (&maximo[contador], sizeof(clientes) ,1,funCliente);
-
-        if(voltar == 1)
+        if(maximo[contador].usuario)
         {
-            printf("\nINFO. GRAVADAS COM SUCESSO!");
+          int i = 0;
+
+          for(i=1;i <=2;i++)
+          {
+            fprintf(funCliente,"\n\nUsuario de numero: %d \n",rand() % 1000); // gerar um numero aleatorio para o usuario
+
+            printf("Digite seu Nome: ");
+            gets(maximo[contador].nome);
+            fprintf(funCliente,"Nome: %s\n",maximo[contador].nome);
+            printf("Digite seu CPF: ");
+            gets(maximo[contador].cpf);
+            fprintf(funCliente,"CPF: %s\n",maximo[contador].cpf);
+            printf("Digite seu E-mail: ");
+            gets(maximo[contador].email);
+            fprintf(funCliente,"E-mail: %s\n",maximo[contador].email);
+            printf("Telefone : ");
+            gets(maximo[contador].telefone);
+            fprintf(funCliente,"Telefone: %s\n",maximo[contador].telefone);
+            printf("\n\tENDEREÇO...: \n");
+            printf("RUA: ");
+            gets(maximo[contador].rua);
+            fprintf(funCliente,"Rua: %s\n",maximo[contador].rua);
+            printf("Numero e Complemento caso tenha: ");
+            gets(maximo[contador].numero);
+            fprintf(funCliente,"Numero: %s\n",maximo[contador].numero);
+            printf("Bairro: ");
+            gets(maximo[contador].bairro);
+            fprintf(funCliente,"Bairro: %s\n",maximo[contador].bairro);
+            printf("CEP: ");
+            gets(maximo[contador].cep);
+            fprintf(funCliente,"Cep: %s\n",maximo[contador].cep);
+
+          }
+          if(i != NULL)
+        {
+            printf("\nINFO. GRAVADAS COM SUCESSO!\n");
+            exit(i);
+
         }
-         exit(opcoes);
+        }
+
+
+
+         exit(contador);
 
     }
     fclose(funCliente);

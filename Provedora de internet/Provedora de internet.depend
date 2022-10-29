@@ -21,3 +21,20 @@
 	<stdio.h>
 	<stdlib.h>
 
+1667055133 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
+1667047223 c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.h
+
+1667050778 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funcaoCliente.h"
+	<locale.h>
+
