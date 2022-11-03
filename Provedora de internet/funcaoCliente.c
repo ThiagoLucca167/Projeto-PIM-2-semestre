@@ -56,14 +56,7 @@ void loginCliente()
 {
     char login[100];
     char senha[100];
-    char str1[100];
-    char str2[100];
-    int contador=0;
-
-    printf("Login: ");
-    scanf("%s",&login);
-    printf("senha: ");
-    scanf("%s",&senha);
+    int voltar=1, contador=0, p=0;
 
     funCliente =fopen("Clientes.txt", "r");
      if(funCliente == NULL)
@@ -71,18 +64,32 @@ void loginCliente()
         printf("Desculpe arquivo não encontrado");
     }
 
-    while(fgets(login,100,funCliente) != NULL)
+
+    printf("Login: ");
+    gets(login);
+    gets(login);
+     printf("Senha ");
+    gets(senha);
+
+
+    voltar = fread (&maximo[contador].login, sizeof(clientes) ,1,funCliente);
+
+    while(voltar == 1)
     {
-        if(strcmp(login,maximo[TAMANHO].login) && strcmp(senha,maximo[TAMANHO].login) != 0){
-
-            printf("logado");
-        }else
+        if(strcmp(login,maximo[p].login)==0 && strcmp(senha,maximo[p].senha)==0)
         {
-            printf("nao logado");
+             printf("\n Bem vindo...: %s",maximo[p].login);
+             contador++;
         }
+        p++;
+        voltar = fread (&maximo[p].login, sizeof(clientes) ,1,funCliente);
     }
-
-printf("NAO LOGADO");
+    if(contador==0)
+    {
+        printf("Nenhum resultado encontrado");
+    }
+    getch();
+    exit(1);
 
 
 

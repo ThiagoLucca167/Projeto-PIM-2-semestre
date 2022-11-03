@@ -38,3 +38,28 @@
 	"funcaoCliente.h"
 	<locale.h>
 
+1667497576 source:c:\users\thiago lucca\documents\projeto-pim-2-semestre\provedora de internet\funcaocliente.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
+1667497931 c:\users\thiago lucca\documents\projeto-pim-2-semestre\provedora de internet\funcaocliente.h
+
+1667321616 source:c:\users\thiago lucca\documents\projeto-pim-2-semestre\provedora de internet\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funcaoCliente.h"
+	<locale.h>
+
+1667497917 source:c:\users\thiago lucca\documents\projeto-pim-2-semestre\provedora de internet\telacliente.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
