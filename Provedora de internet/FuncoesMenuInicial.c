@@ -13,17 +13,21 @@ void FuncoesMenuInicial()
     printf("3.Sobre Nós\n");
     printf("4.Participantes\n");
     printf("5.Configurações de tela\n");
-    printf("0.Sair\n");
+    printf("0.Sair\n\n");
     scanf("%i",&validacoes);
 
     switch(validacoes)
     {
     case 1:
-        funcaoCliente();
+        system("cls || clear");
+        telaUsuario("Cliente");
         break;
+
     case 2:
-        printf("2.login");
+        system("cls || clear");
+        telaUsuario("Funcionario");
         break;
+
     case 3:
         printf("Sobre Nós");
         break;
@@ -48,7 +52,44 @@ void FuncoesMenuInicial()
 
 }
 
+void telaUsuario(const char* usuario)
+{
+    int opcao = 0;
+    printf("1.Login do %s\n", usuario);
+    printf("2.Cadastro do %s\n", usuario);
+    printf("3. voltar\n\n");
+    scanf("%i", &opcao);
+    system("cls || clear");
+    tipoUsuario(opcao, usuario);
+}
 
+void tipoUsuario(int opcao, const char* usuario)
+{
+    switch(opcao){
+        case 1:
+            system("cls || clear");
+            loginUsuario(usuario); // vai para loginUsuario() no arquivo funcaoCliente.c
+            break;
+
+        case 2:
+            system("cls || clear");
+            cadastroUsuario(usuario);
+            break;
+
+        case 3:
+            system("cls || clear");
+            FuncoesMenuInicial();
+            break;
+
+        default:
+            system("cls || clear");
+            printf("opção inválida!");
+            system("pause>nul");
+            system("cls || clear");
+            telaUsuario(usuario);
+
+    }
+}
 
 void configuracaoTela()
 {
