@@ -9,5 +9,6 @@
 
 void telaCliente()
 {
-
+    printf("\n\n");
+    printf("..........  TESTE 1  ..........");
 }

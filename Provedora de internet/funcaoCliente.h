@@ -3,5 +3,6 @@
 
 void funcaoCliente();
 void telaCliente();
+void FuncoesMenuInicial();
 
 #endif // FUNCAOCLIENTE_H_INCLUDED

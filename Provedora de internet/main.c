@@ -4,47 +4,32 @@
 #include "funcaoCliente.h"
 #include <locale.h>
 
-int WinMain()
+int main()
 {
     setlocale(LC_ALL, "");
-
-    system("color f0");
-
-    int perfil,cliente,funcionario;
-
-    printf("\n\n");
-    printf("\t*************************************************************\n");
-    printf("\t*                                                           *\n");
-    printf("\t*                                                           *\n");
-    printf("\t*    OLA, SEJA BEM VINDO A NOSSA PROVEDORA DE INTERNET.     *\n");
-    printf("\t*                       BROADTCHE                           *\n");
-    printf("\t*    A INTERNET MAIS RAPIDA E SEGURA QUE DOMINARA O MUNDO   *\n");
-    printf("\t*                                                           *\n");
-    printf("\t*                                                           *\n");
-    printf("\t*************************************************************\n\n");
-
-    printf("Selecione o seu perfil\n\n");
-    printf("1.Cliente\n");
-    printf("2.Funcionario\n");
-    scanf("%i",&perfil);
-
-    switch(perfil)
-    {
-    case 1:
-        funcaoCliente();
-        break;
-    case 2:
-        printf("funcionario");
-        printf("2.login");
-        break;
-    default:
-        printf("selecione uma opcao valida !!");
-    }
-
-
+    telaInicial();
 }
 
 
+
+int telaInicial()
+{
+    printf("\n\n");
+    printf("\t\t-------------------------------------------------------------\n");
+    printf("\t\t|      OLA, SEJA BEM VINDO A NOSSA PROVEDORA DE INTERNET.   |\n");
+    printf("\t\t*                                                           *\n");
+    printf("\t\t*                                                           *\n");
+    printf("\t\t*                       BRODTEC                             *\n");
+    printf("\t\t*                                                           *\n");
+    printf("\t\t*                                                           *\n");
+    printf("\t\t*      A INTERNET MAIS RAPIDA E SEGURA QUE DOMINARA O MUNDO *\n");
+    printf("\t\t*                                                           *\n");
+    printf("\t\t*************************************************************\n\n");
+
+    system("pause");
+
+    FuncoesMenuInicial();
+}
 /*=========== Cores ================
 Para implementar segue algumas cores - system(“color 1F”)
 0 - Preto

@@ -35,6 +35,7 @@ void funcaoCliente()
     printf("\n\tSelecionado o perfil cliente !!!\n\n");
         printf("1.cadastro\n");
         printf("2.login\n");
+        printf("3.Voltar ao Menu");
         scanf("%i",&cliente);
     switch(cliente)
     {
@@ -44,6 +45,9 @@ void funcaoCliente()
         break;
     case 2:
         loginCliente();
+        break;
+    case 3:
+       FuncoesMenuInicial();
         break;
 
     default:
@@ -153,17 +157,12 @@ void adicionar()
             printf("\n\tENDEREÇO...: \n");
             printf("RUA: ");
             gets(maximo[contador].rua);
-
             printf("Numero e Complemento caso tenha: ");
             gets(maximo[contador].numero);
-
             printf("Bairro: ");
             gets(maximo[contador].bairro);
-
             printf("CEP: ");
             gets(maximo[contador].cep);
-
-
           }
           voltar = fwrite (&maximo[contador], sizeof(clientes) ,1,funCliente);
 
