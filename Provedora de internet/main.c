@@ -6,6 +6,7 @@
 
 int main()
 {
+    system("color 0f");
     setlocale(LC_ALL, "");
     telaInicial();
 }
