@@ -29,7 +29,7 @@
 
 void loginUsuario(const char* usuario)
 {
-    if(usuario == "Cliente") // <----- ERRO AQUI!!!! quando tenta comparar as strings o codigo da erro e termina. não consegui achar resolver o problema  obs.: strcomp() tambem da erro
+    if(usuario == "Cliente") // <----- ERRO AQUI!!!! quando tenta comparar as strings o codigo da erro e termina. não consegui resolver o problema  obs.: strcomp() tambem da erro
     {
         funUsuarios = fopen("Clientes.txt", "r"); // cadastro só de clientes
             if(funUsuarios == NULL)
@@ -89,18 +89,18 @@ void validarLogin()
 
 void cadastroUsuario(const char* usuario)
 {
-    if(usuario == "Cliente")
+    if(usuario == "Cliente") // <-- ERRO AQUI
     {
-        funUsuarios = fopen("Clientes.txt", "r");
+        funUsuarios = fopen("Clientes.txt", "a");
             if(funUsuarios == NULL)
             {
                 printf("Desculpe arquivo não encontrado");
             }
         adicionar();
     }
-    else if(usuario == "Funcionario")
+    if(usuario == "Funcionario") // <-- ERRO AQUI
     {
-        funUsuarios = fopen("Funcionarios.txt", "r");
+        funUsuarios = fopen("Funcionarios.txt", "a");
             if(funUsuarios == NULL)
             {
                 printf("Desculpe arquivo não encontrado");
