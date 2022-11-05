@@ -29,7 +29,7 @@ void FuncoesMenuInicial()
         break;
 
     case 3:
-        printf("Sobre Nós");
+        participantes();
         break;
     case 4:
         printf("Participantes");
@@ -91,16 +91,59 @@ void tipoUsuario(int opcao, const char* usuario)
     }
 }
 
+void participantes()
+{
+    limparTela();
+    printf("\n\n");
+    printf("O PROJETO FOI REALIZADO PELO GRUPO DE TECNICOS DE INFORMATICA, PARA DESENVOLVIMENTO DE UM SOFTWARE FUNCIONAL\n QUE ATENDA TODO TIPO DE CLIENTE.");
+    printf("\nSENDO UM SISTEMA RAPIDO E EFICAZ ONDE VOCE PODE CONSULTAR SEU CADASTRO DE FORMA SIMPLES E RÁPIDO COM POUCAS REQUISIÇÕES!!!");
+    printf("\n\tDESENVOLVEDORES DO PROJETO...: ");
+    printf("\n Thiago Lucca Rodrigues Martins De Santana RA: N8444J-0");
+    printf("\n Kelson nascimento oliveira RA: G525CB-4");
+    printf("\n Gustavo Alves Quirino RA: G514GC-0");
+}
+
+
+
 void configuracaoTela()
 {
-    printf("0 - Preto | 1 - Azul |2 - Verde | 3 - Verde-água\n");
-    printf("4 - Vermelho | 5 - Roxo | 6 - Amarelo |7 - Branco\n");
-    printf("8 - Cinza | 9 - Azul claro | A - Verde Claro\n");
-    printf("B - Verde-água claro | C - Vermelho Claro\n");
-    printf("D - Lilás | E - Amarelo Claro | F - Branco Brilhante");
-    int opcao;
-    char buf[2];
-    snprintf(buf, sizeof(buf), "color %s", opcao);
-    system(buf);
+    int corTela;
+    printf("1.Padrão\n");
+    printf("2.Fundo Azul com letra Branca\n");
+    printf("3.Fundo Branco com letra Preta\n");
+    printf("4.Fundo Amarelo com letra Azul\n");
+    printf("0.Voltar");
+    scanf("%i", & corTela);
 
+    switch(corTela)
+    {
+    case 0:
+        limparTela();
+        FuncoesMenuInicial();
+        break;
+    case 1:
+        system("color 0f");
+        break;
+    case 2:
+        system("color 1f");
+        break;
+    case 3:
+        system("color f0");
+        break;
+    case 4:
+        system("color E1");
+        break;
+    default:
+        printf("Opção inválida");
+        limparTela();
+        configuracaoTela();
+    }
+     limparTela();
+     FuncoesMenuInicial();
+}
+
+void limparTela()
+{
+    system("pause>nul");
+    system("cls || clean");
 }
