@@ -1,0 +1,110 @@
+# depslib dependency file v1.0
+1666976246 source:c:\users\thiag\desktop\projeto-pim-2-semestre\provedora de internet\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funcaoCliente.h"
+	<locale.h>
+
+1666981011 source:c:\users\thiag\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
+1666975136 c:\users\thiag\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.h
+
+1666975064 c:\users\thiag\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+
+1667589071 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
+1667499513 c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.h
+
+1667663337 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funcaoCliente.h"
+	<locale.h>
+
+1667497576 source:c:\users\thiago lucca\documents\projeto-pim-2-semestre\provedora de internet\funcaocliente.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
+1667497931 c:\users\thiago lucca\documents\projeto-pim-2-semestre\provedora de internet\funcaocliente.h
+
+1667321616 source:c:\users\thiago lucca\documents\projeto-pim-2-semestre\provedora de internet\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funcaoCliente.h"
+	<locale.h>
+
+1667497917 source:c:\users\thiago lucca\documents\projeto-pim-2-semestre\provedora de internet\telacliente.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
+1667512556 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\telacliente.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
+1667663988 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcoesmenuinicial.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1667680539 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
+1667603593 c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.h
+
+1667605008 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\funcoesmenuinicial.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1667592923 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funcaoCliente.h"
+	<locale.h>
+
+1667592923 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\telacliente.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
