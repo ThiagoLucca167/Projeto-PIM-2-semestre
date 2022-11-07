@@ -15,9 +15,10 @@ int main()
 
 int telaInicial()
 {
+    system("cls || clean");
     printf("\n\n");
-    printf("\t\t-------------------------------------------------------------\n");
-    printf("\t\t|      OLA, SEJA BEM VINDO A NOSSA PROVEDORA DE INTERNET.   |\n");
+    printf("\t\t*************************************************************\n");
+    printf("\t\t*      OLA, SEJA BEM VINDO A NOSSA PROVEDORA DE INTERNET.   *\n");
     printf("\t\t*                                                           *\n");
     printf("\t\t*                                                           *\n");
     printf("\t\t*                       BRODTEC                             *\n");
@@ -27,7 +28,7 @@ int telaInicial()
     printf("\t\t*                                                           *\n");
     printf("\t\t*************************************************************\n\n");
 
-    system("pause");
+    system("pause>nul");
 
     FuncoesMenuInicial();
 }

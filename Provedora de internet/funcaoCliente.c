@@ -6,7 +6,7 @@
 #include <conio.h>
 #define TAMANHO 100
 
-    typedef struct usuariosArq{
+    typedef struct clientesArq{
     char login[20];
     char senha[20];
     int usuario[100];
@@ -18,95 +18,114 @@
     char bairro[50];
     char cep[9];
     char numero[20];
-    }usuarios;
+    }clientes;
 
 
     static int quantidade = 0;
-    usuarios maximo[TAMANHO];
+    clientes maximo[TAMANHO];
 
-    FILE *funUsuarios;
+    FILE *funCliente;
 
-
-void loginUsuario(const char* usuario)
+void funcaoCliente()
 {
-    if(usuario == "Cliente") // <----- ERRO AQUI!!!! quando tenta comparar as strings o codigo da erro e termina. não consegui resolver o problema  obs.: strcomp() tambem da erro
-    {
-        funUsuarios = fopen("Clientes.txt", "r"); // cadastro só de clientes
-            if(funUsuarios == NULL)
-            {
-                printf("Desculpe arquivo não encontrado");
-            }
-        validarLogin();
-    }
-    if(usuario == "Funcionario") // <--- ERRO AQUI!!!
-    {
-        funUsuarios = fopen("Funcionarios.txt", "r"); // cadastro só de funcionários
-            if(funUsuarios == NULL)
-            {
-                printf("Desculpe arquivo não encontrado");
-            }
-        validarLogin();
-    }
 
+    int cliente;
+    char login[30], senha[30];
 
-fclose(funUsuarios);
+    printf("\n\tSelecionado o perfil cliente !!!\n\n");
+        printf("1.cadastro\n");
+        printf("2.login\n");
+        printf("3.Voltar ao Menu\n");
+        scanf("%i",&cliente);
+    switch(cliente)
+    {
+    case 1:
+
+        cadastroCliente();
+        break;
+    case 2:
+        loginCliente();
+        break;
+    case 3:
+        limparTela();
+       FuncoesMenuInicial();
+        break;
+
+    default:
+        printf("selecione uma opção valida");
+
+    }
 }
 
-
-void validarLogin()
+void loginCliente()
 {
     char login[100];
     char senha[100];
     int voltar=1, contador=0, p=0;
 
+    funCliente =fopen("Clientes.txt", "r");
+     if(funCliente == NULL)
+    {
+        printf("Desculpe arquivo não encontrado");
+    }
+
+
     printf("Login: ");
+    gets(login);
     gets(login);
      printf("Senha ");
     gets(senha);
 
 
-    voltar = fread (&maximo[contador].login, sizeof(usuarios) ,1,funUsuarios);
+    voltar = fread (&maximo[contador].login, sizeof(clientes) ,1,funCliente);
 
     while(voltar == 1)
     {
         if(strcmp(login,maximo[p].login)==0 && strcmp(senha,maximo[p].senha)==0)
         {
+             limparTela();
              printf("\n Bem vindo...: %s",maximo[p].login);
              contador++;
+             telaCliente();
         }
         p++;
-        voltar = fread (&maximo[p].login, sizeof(usuarios) ,1,funUsuarios);
+        voltar = fread (&maximo[p].login, sizeof(clientes) ,1,funCliente);
     }
     if(contador==0)
     {
-        printf("Nenhum resultado encontrado");
-    }
-    getch();
-    exit(1);
+        char tentativas,i;
+        printf("\nNenhum resultado encontrado\nTentar novamente S/N...: ");
+        scanf("%s",&tentativas);
 
+       for(i=0;i<=3;i++)
+            {
+                if(tentativas = 's' || 'S')
+                {
+                  loginCliente();
+                }else if(tentativas = 'n' || 'N' || 'ñ' || 'Ñ')
+                {
+                    funcaoCliente();
+                }else
+                {
+                    printf("Selecione uma opção valída !!!");
+                    i++;
+                }
+            }
+
+
+
+    }
+
+fclose(funCliente);
 }
 
 
-void cadastroUsuario(const char* usuario)
+
+
+
+void cadastroCliente()
 {
-    if(usuario == "Cliente") // <-- ERRO AQUI
-    {
-        funUsuarios = fopen("Clientes.txt", "a");
-            if(funUsuarios == NULL)
-            {
-                printf("Desculpe arquivo não encontrado");
-            }
-        adicionar();
-    }
-    if(usuario == "Funcionario") // <-- ERRO AQUI
-    {
-        funUsuarios = fopen("Funcionarios.txt", "a");
-            if(funUsuarios == NULL)
-            {
-                printf("Desculpe arquivo não encontrado");
-            }
-        adicionar();
-    }
+    adicionar();
 }
 
 void consultar()
@@ -116,12 +135,20 @@ void consultar()
 
 
 
-        fclose(funUsuarios);
+        fclose(funCliente);
 }
-
 void adicionar()
 {
     int contador=0, voltar;
+
+
+
+    funCliente =fopen("Clientes.txt", "a");
+    if(funCliente == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
 
     while (contador < TAMANHO)
     {
@@ -156,7 +183,7 @@ void adicionar()
             printf("CEP: ");
             gets(maximo[contador].cep);
           }
-          voltar = fwrite (&maximo[contador], sizeof(usuarios) ,1,funUsuarios);
+          voltar = fwrite (&maximo[contador], sizeof(clientes) ,1,funCliente);
 
           if(voltar == 1)
         {
@@ -171,5 +198,5 @@ void adicionar()
          exit(contador);
 
     }
-    fclose(funUsuarios);
+    fclose(funCliente);
 }

@@ -6,33 +6,29 @@
 void FuncoesMenuInicial()
 {
 
-    int validacoes,cliente,funcionario;
+    int validacoes;
     printf("\n\nSelecione o que fazer...: \n\n");
     printf("1.Cliente\n");
     printf("2.Funcionario\n");
     printf("3.Sobre Nós\n");
     printf("4.Participantes\n");
     printf("5.Configurações de tela\n");
-    printf("0.Sair\n\n");
+    printf("0.Sair\n");
     scanf("%i",&validacoes);
 
     switch(validacoes)
     {
     case 1:
-        system("cls || clear");
-        telaUsuario("Cliente");
+        funcaoCliente();
         break;
-
     case 2:
-        system("cls || clear");
-        telaUsuario("Funcionario");
+        printf("1.login");
         break;
-
     case 3:
-        participantes();
+        sobreNos();
         break;
     case 4:
-        printf("Participantes");
+        participantes();
         break;
     case 5:
         system("cls || clean");
@@ -44,63 +40,28 @@ void FuncoesMenuInicial()
         break;
 
     default:
-        printf("selecione uma opcao valida !!");
-        system("pause>nul");
-        system("cls || clean");
+        printf("selecione uma opção valida !!");
+        limparTela();
         FuncoesMenuInicial();
     }
 
 }
 
-void telaUsuario(const char* usuario)
-{
-    int opcao = 0;
-    printf("1.Login do %s\n", usuario);
-    printf("2.Cadastro do %s\n", usuario);
-    printf("3. voltar\n\n");
-    scanf("%i", &opcao);
-    system("cls || clear");
-    tipoUsuario(opcao, usuario);
-}
 
-void tipoUsuario(int opcao, const char* usuario)
-{
-    switch(opcao){
-        case 1:
-            system("cls || clear");
-            loginUsuario(usuario); // vai para loginUsuario() no arquivo funcaoCliente.c
-            break;
-
-        case 2:
-            system("cls || clear");
-            cadastroUsuario(usuario);
-            break;
-
-        case 3:
-            system("cls || clear");
-            FuncoesMenuInicial();
-            break;
-
-        default:
-            system("cls || clear");
-            printf("opção inválida!");
-            system("pause>nul");
-            system("cls || clear");
-            telaUsuario(usuario);
-
-    }
-}
 
 void participantes()
 {
     limparTela();
     printf("\n\n");
-    printf("O PROJETO FOI REALIZADO PELO GRUPO DE TECNICOS DE INFORMATICA, PARA DESENVOLVIMENTO DE UM SOFTWARE FUNCIONAL\n QUE ATENDA TODO TIPO DE CLIENTE.");
-    printf("\nSENDO UM SISTEMA RAPIDO E EFICAZ ONDE VOCE PODE CONSULTAR SEU CADASTRO DE FORMA SIMPLES E RÁPIDO COM POUCAS REQUISIÇÕES!!!");
-    printf("\n\tDESENVOLVEDORES DO PROJETO...: ");
-    printf("\n Thiago Lucca Rodrigues Martins De Santana RA: N8444J-0");
-    printf("\n Kelson nascimento oliveira RA: G525CB-4");
+    printf("\tO PROJETO FOI REALIZADO PELO GRUPO DE TECNICOS DE INFORMATICA\n PARA DESENVOLVIMENTO DE UM SOFTWARE FUNCIONAL QUE ATENDA TODO TIPO DE CLIENTE.");
+    printf("\n\tSENDO UM SISTEMA RAPIDO E EFICAZ ONDE VOCE PODE CONSULTAR SEU\n CADASTRO DE FORMA SIMPLES E RÁPIDO COM POUCAS REQUISIÇÕES!!!");
+    printf("\n\n\tDESENVOLVEDORES DO PROJETO...: \n");
     printf("\n Gustavo Alves Quirino RA: G514GC-0");
+    printf("\n José jadson rodrigues RA: G4482b2");
+    printf("\n Kelson nascimento oliveira RA: G525CB-4");
+    printf("\n Leonardo Luiz Silva de Paula RA: G154BE3");
+    printf("\n Matheus Cavalcanti Soares RA: G433JE8");
+    printf("\n Thiago Lucca Rodrigues Martins De Santana RA: N8444J-0\n");
 }
 
 
@@ -146,4 +107,9 @@ void limparTela()
 {
     system("pause>nul");
     system("cls || clean");
+}
+
+void sobreNos()
+{
+    printf("sobre nos");
 }
