@@ -7,7 +7,7 @@ void FuncoesMenuInicial()
 {
 
     int validacoes;
-    printf("\n\nSelecione o que fazer...: \n\n");
+    printf("\nATENÇÃO SOMENTE NÚMEROS*\n\nSelecione o que fazer...: \n\n");
     printf("1.Cliente\n");
     printf("2.Funcionario\n");
     printf("3.Sobre Nós\n");
@@ -42,7 +42,7 @@ void FuncoesMenuInicial()
 
     default:
         printf("selecione uma opção valida !!");
-        limparTela();
+        system("cls || clean");
         FuncoesMenuInicial();
     }
 

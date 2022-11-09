@@ -83,8 +83,9 @@ void loginCliente()
     {
         if(strcmp(login,maximo[p].login)==0 && strcmp(senha,maximo[p].senha)==0)
         {
+             printf("\nSucesso!");
              limparTela();
-             printf("\n Bem vindo...: %s",maximo[p].login);
+             printf("\nBem vindo...: %s",maximo[p].login);
              contador++;
              telaCliente();
         }
@@ -184,12 +185,12 @@ void adicionar()
           }
           voltar = fwrite (&maximo[contador], sizeof(clientes) ,1,funCliente);
 
-          if(voltar == 1)
-        {
-            printf("\nINFO. GRAVADAS COM SUCESSO!\n");
-            exit(i);
-
-        }
+              if(voltar == 1)
+            {
+                printf("\nINFO. GRAVADAS COM SUCESSO!\n");
+                limparTela();
+                funcaoCliente();
+            }
         }
 
 
