@@ -93,35 +93,34 @@ void loginCliente()
     }
     if(contador==0)
     {
-        char tentativas,i;
-        printf("\nNenhum resultado encontrado\nTentar novamente S/N...: ");
-        scanf("%s",&tentativas);
-
-       for(i=0;i<=3;i++)
-            {
-                if(tentativas = 's' || 'S')
-                {
-                  loginCliente();
-                }else if(tentativas = 'n' || 'N' || 'ñ' || 'Ñ')
-                {
-                    funcaoCliente();
-                }else
-                {
-                    printf("Selecione uma opção valída !!!");
-                    i++;
-                }
-            }
-
-
-
+        tentarNovamente();
     }
 
 fclose(funCliente);
 }
 
+void tentarNovamente()
+{
+    char tentativas;
+        int i;
+        printf("\nNenhum resultado encontrado\nTentar novamente S/N...: ");
+        scanf("%s",&tentativas);
+                if(tentativas == 's' || tentativas == 'S' && tentativas!= 'n' && tentativas!= 'N')
+                {
+                  loginCliente();
 
-
-
+                }
+                else if(tentativas == 'n' || tentativas == 'N')
+                  {
+                      printf("\nSaindo da tela de login.....\n");
+                      limparTela();
+                      funcaoCliente();
+                  }
+                else if (tentativas != 's' && tentativas != 'S' && tentativas!= 'n' && tentativas!= 'N'){
+                    printf("Opção invalída !!!\n");
+                    tentarNovamente();
+                }
+}
 
 void cadastroCliente()
 {

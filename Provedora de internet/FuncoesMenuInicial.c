@@ -37,6 +37,7 @@ void FuncoesMenuInicial()
         break;
     case 0:
         system("pause");
+        exit(1);
         break;
 
     default:
