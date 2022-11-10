@@ -38,10 +38,16 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="funcaoCliente.h" />
+		<Unit filename="funcaoFuncionario.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="telaCliente.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="telaFuncionario.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>

@@ -22,7 +22,7 @@ void FuncoesMenuInicial()
         funcaoCliente();
         break;
     case 2:
-        printf("1.login");
+        funcaoFuncionarios();
         break;
     case 3:
         sobreNos();
