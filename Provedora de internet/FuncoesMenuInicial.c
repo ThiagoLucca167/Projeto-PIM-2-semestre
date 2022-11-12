@@ -5,7 +5,6 @@
 
 void FuncoesMenuInicial()
 {
-
     int validacoes;
     printf("\nATENÇÃO SOMENTE NÚMEROS*\n\nSelecione o que fazer...: \n\n");
     printf("1.Cliente\n");

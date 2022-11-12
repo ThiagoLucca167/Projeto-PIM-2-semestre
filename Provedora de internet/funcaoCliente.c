@@ -70,10 +70,10 @@ void loginCliente()
     }
 
 
-    printf("Login: ");
+    printf("\nLogin: ");
     gets(login);
     gets(login);
-     printf("Senha ");
+     printf("Senha: ");
     gets(senha);
 
 

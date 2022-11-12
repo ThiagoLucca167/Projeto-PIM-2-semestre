@@ -5,4 +5,5 @@ void funcaoCliente();
 void telaCliente();
 void FuncoesMenuInicial();
 void telaFuncionario();
+void tentarNovamente();
 #endif // FUNCAOCLIENTE_H_INCLUDED

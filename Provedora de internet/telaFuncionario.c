@@ -6,6 +6,21 @@
 #include <conio.h>
 #define TAMANHO 100
 
+typedef struct ProdutosClientes
+    {
+        int internet;
+        int caboRede;
+        char AcessPoint;
+        char amplificadorSinal;
+    }produtosClientes;
+
+    static int quantidade = 0;
+    produtosClientes maximo[TAMANHO];
+
+    FILE *arqProdutosCliente;
+
+
+
 int opcao;
 char logo;
 

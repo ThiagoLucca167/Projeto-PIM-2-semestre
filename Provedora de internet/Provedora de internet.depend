@@ -124,3 +124,50 @@
 	<ctype.h>
 	<conio.h>
 
+1668290116 source:c:\users\thiago lucca\desktop\modolos\projeto-pim-2-semestre\provedora de internet\funcaocliente.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
+1668289757 c:\users\thiago lucca\desktop\modolos\projeto-pim-2-semestre\provedora de internet\funcaocliente.h
+
+1668289757 source:c:\users\thiago lucca\desktop\modolos\projeto-pim-2-semestre\provedora de internet\funcaofuncionario.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
+1668285284 source:c:\users\thiago lucca\desktop\modolos\projeto-pim-2-semestre\provedora de internet\funcoesmenuinicial.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1668289411 source:c:\users\thiago lucca\desktop\modolos\projeto-pim-2-semestre\provedora de internet\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funcaoCliente.h"
+	<locale.h>
+
+1668289411 source:c:\users\thiago lucca\desktop\modolos\projeto-pim-2-semestre\provedora de internet\telacliente.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
+1668289411 source:c:\users\thiago lucca\desktop\modolos\projeto-pim-2-semestre\provedora de internet\telafuncionario.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+

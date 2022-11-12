@@ -92,28 +92,7 @@ void loginFuncionario()
     }
     if(contador==0)
     {
-        char tentativas,i;
-        printf("\nNenhum resultado encontrado\nTentar novamente S/N...: ");
-        scanf("%s",&tentativas);
-
-       for(i=0;i<=3;i++)
-            {
-                if(tentativas = 's' || 'S')
-                {
-                  loginFuncionario();
-                }else if(tentativas = 'n' || 'N' || 'ñ' || 'Ñ')
-                {
-                    system("pause");
-                    exit(1);
-                }else
-                {
-                    printf("Selecione uma opção valída !!!");
-                    i++;
-                }
-            }
-
-
-
+        tentarNovamente();
     }
 
 fclose(funFuncionarios);
