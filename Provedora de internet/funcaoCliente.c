@@ -134,7 +134,6 @@ void consultar()
     char nome[30];
 
 
-
         fclose(funCliente);
 }
 void adicionar()
@@ -164,7 +163,7 @@ void adicionar()
             printf("SELECIONE UM NOME DE USUÁRIO: ");
             gets(maximo[contador].login);
             printf("SENHA: ");
-            gets(maximo[contador].senha);
+            gets(maximo[contador].);
             printf("Digite seu Nome: ");
             gets(maximo[contador].nome);
             printf("Digite seu CPF: ");

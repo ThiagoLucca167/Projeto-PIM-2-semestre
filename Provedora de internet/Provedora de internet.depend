@@ -21,7 +21,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1668021938 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.c
+1668299410 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.c
 	"funcaoCliente.h"
 	<stdio.h>
 	<stdlib.h>
@@ -29,9 +29,9 @@
 	<ctype.h>
 	<conio.h>
 
-1667499513 c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.h
+1668299435 c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.h
 
-1667846265 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\main.c
+1668289411 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -63,7 +63,7 @@
 	<ctype.h>
 	<conio.h>
 
-1667846366 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\telacliente.c
+1668289411 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\telacliente.c
 	"funcaoCliente.h"
 	<stdio.h>
 	<stdlib.h>
@@ -71,7 +71,7 @@
 	<ctype.h>
 	<conio.h>
 
-1668021709 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcoesmenuinicial.c
+1668285284 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcoesmenuinicial.c
 	"funcaoCliente.h"
 	<stdio.h>
 	<stdlib.h>
@@ -164,6 +164,22 @@
 	<conio.h>
 
 1668289411 source:c:\users\thiago lucca\desktop\modolos\projeto-pim-2-semestre\provedora de internet\telafuncionario.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
+1668304048 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcaofuncionario.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
+1668304028 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\telafuncionario.c
 	"funcaoCliente.h"
 	<stdio.h>
 	<stdlib.h>

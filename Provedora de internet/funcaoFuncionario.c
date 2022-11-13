@@ -33,9 +33,10 @@ void funcaoFuncionarios()
     char login[30], senha[30];
     system("cls || clear");
     printf("\n\tSelecionado o perfil funcinario !!!\n\n");
-        printf("1.cadastro\n");
-        printf("2.login\n");
-        printf("3.Voltar ao Menu\n");
+        printf("1.Cadastro\n");
+        printf("2.Login\n");
+        printf("3.Login de ADMIM\n");
+        printf("4.Voltar ao Menu\n");
         scanf("%i",&funcionarios);
     switch(funcionarios)
     {
@@ -47,6 +48,9 @@ void funcaoFuncionarios()
         loginFuncionario();
         break;
     case 3:
+        loginAdm();
+        break;
+    case 4:
         limparTela();
         telaInicial();
         break;
@@ -57,6 +61,30 @@ void funcaoFuncionarios()
     }
 }
 
+void loginAdm()
+{
+    char login;
+    char senha;
+    char loginAdm1="Matheus";
+    char senhaAdm1="boraBill";
+    char loginAdm2="Thiago";
+    char senhaAdm2="boraFiDoBill";
+
+    printf("\nOlá ADM...:\n");
+    printf("Login: ");
+    scanf("%s",&login);
+    printf("\nSenha: ");
+    scanf("%s",&senha);
+
+    if(strcmp(login,loginAdm1)==0 || strcmp(login,loginAdm2)==0 && strcmp(senha,senhaAdm1)==0 || strcmp(senha,senhaAdm2)==0)
+    {
+        printf("Logado meu chapas sadokoskadodkdoksa");
+    }
+    else
+    {
+        printf("Infelizmente não foi dessa vez meu chapas kaskdkaakkka");
+    }
+}
 void loginFuncionario()
 {
     char login[100];
