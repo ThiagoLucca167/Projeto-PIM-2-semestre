@@ -7,6 +7,7 @@
 #define TAMANHO 100
 
 
+
 void telaCliente()
 {
     int logadoCliente;
@@ -29,10 +30,10 @@ void telaCliente()
         printf("consulta de perfil selecionado. \n\n1.Alterar Dados\n2.Consultar Perfil\n3.Incluir Dados\n4.Excluir perfil.");
         break;
     case 2:
-        printf("consulta de perfil selecionado. \n\n1.Alterar Dados\n2.Consultar Perfil\n3.Incluir Dados\n4.Excluir perfil.");
+        printf("consulta de Produtos selecionado. \n\n1.Solicitar Produtos\n2.Consultar Produtos\n3.Sugestão de produtos\n4.Cancelar Produtos.");
         break;
     case 3:
-        printf("consulta de perfil selecionado. \n\n1.Alterar Dados\n2.Consultar Perfil\n3.Incluir Dados\n4.Excluir perfil.");
+        printf("consulta de Serviços selecionado. \n\n1.Solicitar Serviços\n2.Consultar Serviços\n3.Sugestão de serviços.");
         break;
     default:
         printf("Selecione uma opção valída!!!");

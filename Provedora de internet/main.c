@@ -21,7 +21,7 @@ int telaInicial()
     printf("\t\t*      OLA, SEJA BEM VINDO A NOSSA PROVEDORA DE INTERNET.   *\n");
     printf("\t\t*                                                           *\n");
     printf("\t\t*                                                           *\n");
-    printf("\t\t*                       BRODTEC                             *\n");
+    printf("\t\t*                       BRODTECH                            *\n");
     printf("\t\t*                                                           *\n");
     printf("\t\t*                                                           *\n");
     printf("\t\t*      A INTERNET MAIS RAPIDA E SEGURA QUE DOMINARA O MUNDO *\n");
