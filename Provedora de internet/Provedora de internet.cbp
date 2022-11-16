@@ -41,6 +41,9 @@
 		<Unit filename="funcaoFuncionario.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="funcaoProdutos.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

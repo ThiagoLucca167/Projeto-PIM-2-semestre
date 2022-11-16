@@ -7,20 +7,13 @@
 #define TAMANHO 100
 
 int opcao;
-char logo;
 
 void telaFuncionario()
 {
     system("cls || clean");
     opcao = 0;
 
-    printf("\n\n");
-    printf("\t\t  ____  _____   ____     _______ _______ ______ _____ _    _ \n");
-    printf("\t\t |  _  |  __ | / __     / |  __ |__   __|  ____/ ____| |  | |\n");
-    printf("\t\t | |_) | |__)|| |  | | /  | |  | | | |  | |__ | |    | |__| |\n");
-    printf("\t\t |  _ <|  _ / | |  | |/ /_| |  | | | |  |  __|| |    |  __  |\n");
-    printf("\t\t | |_) | |  | | |__| / ___| |__| | | |  | |___| |____| |  | |\n");
-    printf("\t\t |____/|_|  |_  ____/_/   |_____/  |_|  |______ _____|_|  |_|\n\n\n");
+    logotipo();
 
     printf("\t1. Setores.\n");
     printf("\t2. Dados de perfil.\n");
@@ -48,11 +41,9 @@ void telaFuncionario()
     }
 }
 
-void setores()
+char logo;
+void logotipo()
 {
-    system("cls || clean");
-    opcao = 0;
-
     printf("\n\n");
     printf("\t\t  ____  _____   ____     _______ _______ ______ _____ _    _ \n");
     printf("\t\t |  _  |  __ | / __     / |  __ |__   __|  ____/ ____| |  | |\n");
@@ -60,28 +51,40 @@ void setores()
     printf("\t\t |  _ <|  _ / | |  | |/ /_| |  | | | |  |  __|| |    |  __  |\n");
     printf("\t\t | |_) | |  | | |__| / ___| |__| | | |  | |___| |____| |  | |\n");
     printf("\t\t |____/|_|  |_  ____/_/   |_____/  |_|  |______ _____|_|  |_|\n\n\n");
+}
 
-    printf("\t1. Financeiro.\n");
-    printf("\t2. TI.\n");
-    printf("\t3. RH.\n");
-    printf("\t4. voltar.\n\n");
+void setores()
+{
+    system("cls || clean");
+    opcao = 0;
+
+    logotipo();
+    printf("\t1. ADMIN.\n");
+    printf("\t2. operação.\n");
+    printf("\t3. Almoxarifado.\n");
+    printf("\t4. Recepção.\n");
+    printf("\t5. Voltar.\n\n");
     scanf("%i", &opcao);
 
     switch(opcao)
     {
         case 1:
-            financeiro();
+            admin();
             break;
 
         case 2:
-            ti();
+            operacao();
             break;
 
         case 3:
-            rh();
+            almoxarifado();
             break;
 
         case 4:
+            recepcao();
+            break;
+
+        case 5:
             telaFuncionario();
             break;
 
@@ -92,59 +95,56 @@ void setores()
     }
 }
 
-void financeiro()
+void admin()
 {
     system("cls || clean");
     opcao = 0;
 
-    printf("\n\n");
-    printf("\t\t  ____  _____   ____     _______ _______ ______ _____ _    _ \n");
-    printf("\t\t |  _  |  __ | / __     / |  __ |__   __|  ____/ ____| |  | |\n");
-    printf("\t\t | |_) | |__)|| |  | | /  | |  | | | |  | |__ | |    | |__| |\n");
-    printf("\t\t |  _ <|  _ / | |  | |/ /_| |  | | | |  |  __|| |    |  __  |\n");
-    printf("\t\t | |_) | |  | | |__| / ___| |__| | | |  | |___| |____| |  | |\n");
-    printf("\t\t |____/|_|  |_  ____/_/   |_____/  |_|  |______ _____|_|  |_|\n\n\n");
-
-    printf("1. almoxarifado\n\n");
+    logotipo();
+    printf("funções para adm\n\n");
     system("pause");
     setores();
 }
 
-void ti()
+void operacao()
 {
     system("cls || clean");
     opcao = 0;
 
-    printf("\n\n");
-    printf("\t\t  ____  _____   ____     _______ _______ ______ _____ _    _ \n");
-    printf("\t\t |  _  |  __ | / __     / |  __ |__   __|  ____/ ____| |  | |\n");
-    printf("\t\t | |_) | |__)|| |  | | /  | |  | | | |  | |__ | |    | |__| |\n");
-    printf("\t\t |  _ <|  _ / | |  | |/ /_| |  | | | |  |  __|| |    |  __  |\n");
-    printf("\t\t | |_) | |  | | |__| / ___| |__| | | |  | |___| |____| |  | |\n");
-    printf("\t\t |____/|_|  |_  ____/_/   |_____/  |_|  |______ _____|_|  |_|\n\n\n");
+    logotipo();
+    printf("1. cadastrar produtos/serviços\n");
+    printf("2. ...\n\n");
+    scanf("%i", &opcao);
 
-    printf("1. equipamentos\n");
-    printf("2. relatorio de visitas\n\n");
-    system("pause");
-    setores();
+    switch(opcao){
+        case 1:
+            adicionarProduto();
+            break;
+
+    default:
+            printf("opção inválida, tente novamente.");
+            system("pause>nul");
+            operacao();
+    }
 }
 
-void rh()
+void recepcao()
 {
     system("cls || clean");
     opcao = 0;
 
-    printf("\n\n");
-    printf("\t\t  ____  _____   ____     _______ _______ ______ _____ _    _ \n");
-    printf("\t\t |  _  |  __ | / __     / |  __ |__   __|  ____/ ____| |  | |\n");
-    printf("\t\t | |_) | |__)|| |  | | /  | |  | | | |  | |__ | |    | |__| |\n");
-    printf("\t\t |  _ <|  _ / | |  | |/ /_| |  | | | |  |  __|| |    |  __  |\n");
-    printf("\t\t | |_) | |  | | |__| / ___| |__| | | |  | |___| |____| |  | |\n");
-    printf("\t\t |____/|_|  |_  ____/_/   |_____/  |_|  |______ _____|_|  |_|\n\n\n");
-
+    logotipo();
     printf("1. suporte tecnico\n\n");
     system("pause");
     setores();
+}
+
+void almoxarifado()
+{
+    system("cls || clean");
+    opcao = 0;
+
+    logotipo();
 }
 
 void perfilFuncionario()
@@ -152,17 +152,11 @@ void perfilFuncionario()
     system("cls || clean");
     opcao = 0;
 
-    printf("\n\n");
-    printf("\t\t  ____  _____   ____     _______ _______ ______ _____ _    _ \n");
-    printf("\t\t |  _  |  __ | / __     / |  __ |__   __|  ____/ ____| |  | |\n");
-    printf("\t\t | |_) | |__)|| |  | | /  | |  | | | |  | |__ | |    | |__| |\n");
-    printf("\t\t |  _ <|  _ / | |  | |/ /_| |  | | | |  |  __|| |    |  __  |\n");
-    printf("\t\t | |_) | |  | | |__| / ___| |__| | | |  | |___| |____| |  | |\n");
-    printf("\t\t |____/|_|  |_  ____/_/   |_____/  |_|  |______ _____|_|  |_|\n\n\n");
-
+    logotipo();
     printf("consulta de dados\n");
     printf("alteração de dados (ADMIN)\n");
-    printf("excluisão de dados (ADMIN)\n\n");
+    printf("excluisão de dados (ADMIN)\n");
+    printf("adicionar funcionarios (ADMIN, ir direto para funcaoFuncionario)\n\n");
     system("pause");
     telaFuncionario();
 }

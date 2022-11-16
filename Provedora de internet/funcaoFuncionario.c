@@ -85,6 +85,7 @@ void loginFuncionario()
         {
              limparTela();
              contador++;
+             fclose(funFuncionarios);
              telaFuncionario();
         }
         p++;

@@ -5,4 +5,5 @@ void funcaoCliente();
 void telaCliente();
 void FuncoesMenuInicial();
 void telaFuncionario();
+void adicionarProduto();
 #endif // FUNCAOCLIENTE_H_INCLUDED
