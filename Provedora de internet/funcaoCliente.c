@@ -142,7 +142,7 @@ void adicionar()
 
 
 
-    funCliente =fopen("Clientes.txt", "a");
+    funCliente =fopen("Clientes.txt", "ab");
     if(funCliente == NULL){
         printf("\n\tATENCAO o arquivo não pode ser aberto");
         getch();
@@ -163,7 +163,7 @@ void adicionar()
             printf("SELECIONE UM NOME DE USUÁRIO: ");
             gets(maximo[contador].login);
             printf("SENHA: ");
-            gets(maximo[contador].);
+            gets(maximo[contador].senha);
             printf("Digite seu Nome: ");
             gets(maximo[contador].nome);
             printf("Digite seu CPF: ");

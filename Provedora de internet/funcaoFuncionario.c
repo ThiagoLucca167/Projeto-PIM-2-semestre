@@ -185,18 +185,14 @@ void adicionarF()
           }
           voltar = fwrite (&maximo[contador], sizeof(funcionarios) ,1,funFuncionarios);
 
-          if(voltar == 1)
+        if(voltar == 1)
         {
             printf("\nINFO. GRAVADAS COM SUCESSO!\n");
             exit(i);
 
         }
         }
-
-
-
          exit(contador);
-
     }
     fclose(funFuncionarios);
 }
