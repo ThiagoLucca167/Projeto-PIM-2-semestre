@@ -110,11 +110,21 @@ void operacao()
 
     logoTipo();
     printf("Selecione 1. cadastrar produtos...:\n");
+    printf("2. consultar produto\n");
+    printf("4. excluir produtos\n\n");
     scanf("%i", &opcao);
 
     switch(opcao){
         case 1:
             adicionarProduto();
+            break;
+
+        case 2:
+            consultarProduto();
+            break;
+
+        case 4:
+            excluirProduto();
             break;
 
     default:
@@ -167,7 +177,7 @@ void perfilFuncionario()
     logoTipo();
     printf("consulta de dados\n");
     printf("alteração de dados (ADMIN)\n");
-    printf("excluisão de dados (ADMIN)\n");
+    printf("exclusão de dados (ADMIN)\n");
     printf("adicionar funcionarios (ADMIN, ir direto para funcaoFuncionario)\n\n");
     system("pause");
     telaFuncionario();
