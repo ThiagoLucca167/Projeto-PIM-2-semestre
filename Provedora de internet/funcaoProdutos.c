@@ -8,22 +8,24 @@
 
 int opcao=0;
 
-typedef struct produtoServicoArq{
-    char nomeProduto[20];
-    int valorProduto[20];
-    char descricaoProduto[150];
-    int funcionario[10];
+ struct Produto{
+    int codigo[5];
+    char nomeProduto[10];
+    float valorProduto;
+    char descricaoProduto[50];
+    int funcionario;
     char deletar;
-    }produtos;
+    };
 
 
-    produtos maximo[TAMANHO];
+
     FILE *funProduto;
 
 
 void adicionarProduto()
 {
-    int contador=0, voltar;
+    struct Produto produtos;
+    int voltar;
 
     funProduto = fopen("Produtos.txt", "a");
     if(funProduto == NULL){
@@ -32,18 +34,18 @@ void adicionarProduto()
         exit(1);
     }
 
-            gets(maximo[contador].funcionario);
+            gets(&produtos.funcionario);
             printf("\t\tCadastro de novos produtos.\n\n\n");
-            printf("Nome do Produto: ");
+            printf("Codigo do Produto: ");
+            gets(&produtos.codigo);
             fprintf(funProduto,"\n");
-            gets(maximo[contador].nomeProduto);
             printf("Valor do Produto: ");
-            gets(maximo[contador].valorProduto);
+            gets(&produtos.valorProduto);
             printf("Descrição do Produto: ");
-            gets(maximo[contador].descricaoProduto);
+            gets(&produtos.descricaoProduto);
 
 
-    voltar = fwrite (&maximo[contador], sizeof(produtos) ,1,funProduto);
+    voltar = fwrite (&produtos, sizeof(produtos) ,1,funProduto);
 
     if(voltar == 1)
         {
@@ -61,16 +63,17 @@ void consultarProduto()
         getch();
         exit(1);
     }
-    int encontrado = 0,contador;
-    char nome;
-    printf ("\nDigite o nome do produto que procura: \n");
-    scanf ("%s", &nome);
+    struct Produto produtos;
+    int encontrado = 0,cod;
+    printf ("\nDigite o Codigo do produto que procura: \n");
+    scanf ("%d", &cod);
 
-    while (fread(&maximo[encontrado], sizeof(produtos), 1, funProduto))
+    while (fread(&produtos, sizeof(produtos), 1, funProduto))
     {
-        if (nome == maximo[encontrado].nomeProduto)
+        printf("WHILE");
+        if (strcmp(cod,produtos.codigo) == 0)
         {
-            printf("Nome: %s --- Descricao: %-8s --- Valor R$ %4.2f\n", maximo[encontrado].nomeProduto, maximo[encontrado].descricaoProduto, maximo[encontrado].valorProduto);
+            printf("Codigo: %d --- Descricao: %-8s --- Valor R$ %4.2f\n", produtos.codigo,produtos.descricaoProduto,produtos.valorProduto);
             encontrado = 1;
             system("pause>nul");
         }
@@ -85,6 +88,7 @@ void consultarProduto()
 
 void excluirProduto()
 {
+    struct Produto produtos;
     funProduto = fopen("Produtos.txt", "r+b");
     if (funProduto == NULL)
     {
@@ -99,11 +103,11 @@ void excluirProduto()
     printf ("\nDigite o codigo que deseja EXCLUIR: \n");
     scanf ("%s", &nome);
 
-    while (fread (&maximo[encontrado], sizeof(produtos), 1, funProduto))
+    while (fread (&produtos, sizeof(produtos), 1, funProduto))
     {
-        if (nome == maximo[encontrado].nomeProduto)
+        if (nome == &produtos.codigo)
         {
-            printf("Produto: %s --- Descricao: %-8s --- Valor R$ %4.2f\n\n",maximo[encontrado].nomeProduto, maximo[encontrado].descricaoProduto, maximo[encontrado].valorProduto);
+            printf("Produto: %s --- Descricao: %-8s --- Valor R$ %4.2f\n\n",produtos.nomeProduto,produtos.descricaoProduto,produtos.valorProduto);
             encontrado = 1;
 
             printf("\nTem certeza que quer excluir este produto? s/n \n");
@@ -111,7 +115,7 @@ void excluirProduto()
             scanf("%c", &certeza);
             if (certeza == 's')
             {
-                maximo[TAMANHO].deletar = '*';
+                produtos.deletar = '*';
                 fseek(funProduto,sizeof(produtos)*-1, SEEK_CUR);
                 fwrite(&funProduto, sizeof(produtos), 1, funProduto);
                 fseek(funProduto, sizeof(produtos)* 0, SEEK_END);
