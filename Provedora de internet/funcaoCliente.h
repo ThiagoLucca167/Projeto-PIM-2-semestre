@@ -8,5 +8,6 @@ void telaFuncionario();
 void adicionarProduto();
 void consultarProduto();
 void tentarNovamente();
+void alterarProduto();
 
 #endif // FUNCAOCLIENTE_H_INCLUDED

@@ -109,9 +109,10 @@ void operacao()
     opcao = 0;
 
     logoTipo();
-    printf("Selecione 1. cadastrar produtos...:\n");
-    printf("2. consultar produto\n");
-    printf("4. excluir produtos\n\n");
+    printf("Selecione\n1. Cadastrar produtos\n");
+    printf("2. Consultar Produto\n");
+    printf("3. Alterar Produtos\n");
+    printf("4. Excluir Produtos\n\n");
     scanf("%i", &opcao);
 
     switch(opcao){
@@ -121,6 +122,9 @@ void operacao()
 
         case 2:
             consultarProduto();
+            break;
+        case 3:
+            alterarProduto();
             break;
 
         case 4:

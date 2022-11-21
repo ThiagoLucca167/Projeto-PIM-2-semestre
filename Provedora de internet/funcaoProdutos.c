@@ -9,8 +9,8 @@
 int opcao=0;
 
  struct Produto{
-    int codigo[5];
-    char nomeProduto[10];
+    int codigo;
+    char nomeProduto;
     float valorProduto;
     char descricaoProduto[50];
     int funcionario;
@@ -24,26 +24,24 @@ int opcao=0;
 
 void adicionarProduto()
 {
-    struct Produto produtos;
+
     int voltar;
 
-    funProduto = fopen("Produtos.txt", "a");
+    funProduto = fopen("Produtos.txt", "a+b");
     if(funProduto == NULL){
         printf("\n\tATENCAO o arquivo não pode ser aberto");
         getch();
         exit(1);
     }
+            struct Produto produtos;
 
-            gets(&produtos.funcionario);
-            printf("\t\tCadastro de novos produtos.\n\n\n");
-            printf("Codigo do Produto: ");
-            gets(&produtos.codigo);
-            fprintf(funProduto,"\n");
-            printf("Valor do Produto: ");
-            gets(&produtos.valorProduto);
-            printf("Descrição do Produto: ");
-            gets(&produtos.descricaoProduto);
-
+            printf("Digite o codigo do produto: \n");
+            scanf("%d", &produtos.codigo);
+            printf("Digite a descricao do produto: \n");
+            fflush(stdin);
+            gets(produtos.descricaoProduto);
+            printf("Digite o valor do produto: \n");
+            scanf("%f", &produtos.valorProduto);
 
     voltar = fwrite (&produtos, sizeof(produtos) ,1,funProduto);
 
@@ -57,23 +55,28 @@ void adicionarProduto()
 
 void consultarProduto()
 {
-    funProduto = fopen("Produtos.txt", "r");
+    funProduto = fopen("Produtos.txt", "rb");
     if(funProduto == NULL){
         printf("\n\tATENCAO o arquivo não pode ser aberto");
         getch();
         exit(1);
     }
+
     struct Produto produtos;
+
     int encontrado = 0,cod;
+
     printf ("\nDigite o Codigo do produto que procura: \n");
     scanf ("%d", &cod);
 
     while (fread(&produtos, sizeof(produtos), 1, funProduto))
     {
-        printf("WHILE");
-        if (strcmp(cod,produtos.codigo) == 0)
+
+    printf("Buscando ....    \n");
+
+        if ((cod == produtos.codigo)  && (produtos.deletar != '*'))
         {
-            printf("Codigo: %d --- Descricao: %-8s --- Valor R$ %4.2f\n", produtos.codigo,produtos.descricaoProduto,produtos.valorProduto);
+            printf("Codigo..: %d \nDescricao..: %-8s \nValor..: R$ %4.2f\n", produtos.codigo,produtos.descricaoProduto,produtos.valorProduto);
             encontrado = 1;
             system("pause>nul");
         }
@@ -82,32 +85,32 @@ void consultarProduto()
     {
         printf("\nCodigo nao cadastrado!!\n");
         system("pause");
+        operacao();
     }
     fclose(funProduto);
 }
 
 void excluirProduto()
 {
-    struct Produto produtos;
-    funProduto = fopen("Produtos.txt", "r+b");
-    if (funProduto == NULL)
-    {
-       printf("Arquivo inexistente!");
-        system("pause>nul");
-        system("cls || clear");
-
+   funProduto = fopen("Produtos.txt", "r+b");
+    if(funProduto == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
     }
 
-    int encontrado = 0;
-    char certeza, nome;
+    struct Produto produtos;
+
+    int cod, encontrado = 0;
+    char certeza;
     printf ("\nDigite o codigo que deseja EXCLUIR: \n");
-    scanf ("%s", &nome);
+    scanf ("%d", &cod);
 
     while (fread (&produtos, sizeof(produtos), 1, funProduto))
     {
-        if (nome == &produtos.codigo)
+        if (cod == produtos.codigo)
         {
-            printf("Produto: %s --- Descricao: %-8s --- Valor R$ %4.2f\n\n",produtos.nomeProduto,produtos.descricaoProduto,produtos.valorProduto);
+            printf("Cod %d --- Descricao: %-8s --- Valor R$ %4.2f\n\n",produtos.codigo, produtos.descricaoProduto, produtos.valorProduto);
             encontrado = 1;
 
             printf("\nTem certeza que quer excluir este produto? s/n \n");
@@ -116,18 +119,15 @@ void excluirProduto()
             if (certeza == 's')
             {
                 produtos.deletar = '*';
-                fseek(funProduto,sizeof(produtos)*-1, SEEK_CUR);
-                fwrite(&funProduto, sizeof(produtos), 1, funProduto);
+                fseek(funProduto,sizeof(struct Produto)*-1, SEEK_CUR);
+                fwrite(&produtos, sizeof(produtos), 1, funProduto);
                 fseek(funProduto, sizeof(produtos)* 0, SEEK_END);
                 printf("\nProduto excluido com Sucesso! \n");
                 system("pause>nul");
-                system("cls || clear");
-                operacao();
             }
             else if (certeza == 'n')
             {
                 system("cls || clear");
-                operacao();
             }
         }
     }
@@ -135,11 +135,58 @@ void excluirProduto()
     {
         printf ("\nCodigo nao cadastrado!!\n");
         system("pause>nul");
-        system("cls || clear");
-        operacao();
     }
     fclose(funProduto);
 }
+
+
+
+
+void alterarProduto()
+{
+  funProduto = fopen("Produtos.txt", "r+b");
+    if(funProduto == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Produto produtos;
+    int cod, encontrado = 0;
+    printf ("\nDigite o codigo que deseja alterar: \n");
+    scanf ("%d", &cod);
+
+    while (fread (&produtos, sizeof(produtos), 1, funProduto))
+    {
+        if (cod == produtos.codigo)
+        {
+            printf("Cod %d --- Descricao: %-8s --- Valor R$ %4.2f\n\n",produtos.codigo, produtos.descricaoProduto, produtos.valorProduto);
+            encontrado = 1;
+
+            fseek(funProduto,sizeof(struct Produto)*-1, SEEK_CUR);
+            printf("\nDigite a nova descricao: \n");
+            fflush(stdin);
+            gets(produtos.descricaoProduto);
+            printf("\nDigite o novo preco....: \n");
+            scanf("%f", &produtos.valorProduto);
+
+            fwrite(&produtos, sizeof(produtos), 1, funProduto);
+            fseek(funProduto, sizeof(produtos)* 0, SEEK_END);
+
+            printf("\n Dados do produto alterados com sucesso!");
+            system("pause>nul");
+        }
+    }
+    if (!encontrado)
+    {
+        printf("\nCodigo nao cadastrado!!\n");
+    }
+    fclose(funProduto);
+}
+
+
+
+
 
 
 
