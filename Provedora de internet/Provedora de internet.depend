@@ -21,7 +21,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1669058682 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.c
+1669071493 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.c
 	"funcaoCliente.h"
 	<stdio.h>
 	<stdlib.h>
@@ -195,11 +195,14 @@
 	<ctype.h>
 	<conio.h>
 
-1669053949 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcaoprodutos.c
+1669067648 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcaoprodutos.c
 	"funcaoCliente.h"
 	<stdio.h>
 	<stdlib.h>
+	<locale.h>
 	<string.h>
-	<ctype.h>
+	<time.h>
 	<conio.h>
+	<ctype.h>
+	<dos.h>
 

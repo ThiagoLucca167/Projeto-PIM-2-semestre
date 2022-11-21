@@ -1,21 +1,24 @@
 #include "funcaoCliente.h"
-#include <stdio.h>
+#include<stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 #include <string.h>
-#include <ctype.h>
+#include <time.h>
 #include <conio.h>
-#define TAMANHO 100
+#include <ctype.h>
+#include <dos.h>
+
 
 int opcao=0;
 
- struct Produto{
+ typedef struct Produto{
     int codigo;
     char nomeProduto;
     float valorProduto;
     char descricaoProduto[50];
     int funcionario;
     char deletar;
-    };
+    }produtos;
 
 
 
@@ -27,7 +30,7 @@ void adicionarProduto()
 
     int voltar;
 
-    funProduto = fopen("Produtos.txt", "a+b");
+    funProduto = fopen("Produtos.txt", "ab");
     if(funProduto == NULL){
         printf("\n\tATENCAO o arquivo não pode ser aberto");
         getch();
