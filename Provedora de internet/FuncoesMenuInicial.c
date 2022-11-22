@@ -34,6 +34,7 @@ void FuncoesMenuInicial()
        printf("\n\tSelecionada Configurações de tela...: \n\n");
        configuracaoTela();
         break;
+
     case 0:
         system("pause");
         exit(1);

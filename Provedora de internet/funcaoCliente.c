@@ -248,7 +248,7 @@ void login()
 
     while (fread(&clientes, sizeof(clientes), 1, funCliente))
     {
-
+    system("cls || clean");
     printf("\nVerifincando .... \n\n");
 
         if ((cod == clientes.codigo)  && (clientes.deletar != '*'))
@@ -302,6 +302,7 @@ void adicionarClientesProdutos()
             printf("\nINFO. GRAVADAS COM SUCESSO!\n");
             fclose(funCliente);
             system("pause");
+            system("cls || clean");
             consultaPerfil();
         }
 
@@ -340,6 +341,7 @@ void consultarClientesProdutos()
     {
         printf("\nPerfil nao cadastrado!!\n");
         system("pause");
+        system("cls || clean");
        consultaPerfil();
     }
     fclose(funCliente);

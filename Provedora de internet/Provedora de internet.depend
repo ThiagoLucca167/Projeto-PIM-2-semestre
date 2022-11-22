@@ -80,24 +80,27 @@
 	<stdlib.h>
 	<string.h>
 
-1668802806 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.c
+1669145476 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.c
 	"funcaoCliente.h"
 	<stdio.h>
 	<stdlib.h>
+	<locale.h>
 	<string.h>
-	<ctype.h>
+	<time.h>
 	<conio.h>
+	<ctype.h>
+	<dos.h>
 
-1668802806 c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.h
+1669148342 c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.h
 
-1668802806 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\main.c
+1669144411 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"funcaoCliente.h"
 	<locale.h>
 
-1668802806 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\telacliente.c
+1669144411 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\telacliente.c
 	"funcaoCliente.h"
 	<stdio.h>
 	<stdlib.h>
@@ -105,7 +108,7 @@
 	<ctype.h>
 	<conio.h>
 
-1668804444 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\funcaofuncionario.c
+1669158168 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\funcaofuncionario.c
 	"funcaoCliente.h"
 	<stdio.h>
 	<stdlib.h>
@@ -113,13 +116,13 @@
 	<ctype.h>
 	<conio.h>
 
-1668802806 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\funcoesmenuinicial.c
+1669156450 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\funcoesmenuinicial.c
 	"funcaoCliente.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1668806483 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\telafuncionario.c
+1669159195 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\telafuncionario.c
 	"funcaoCliente.h"
 	<stdio.h>
 	<stdlib.h>
@@ -127,13 +130,16 @@
 	<ctype.h>
 	<conio.h>
 
-1668805287 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\funcaoprodutos.c
+1669145667 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\funcaoprodutos.c
 	"funcaoCliente.h"
 	<stdio.h>
 	<stdlib.h>
+	<locale.h>
 	<string.h>
-	<ctype.h>
+	<time.h>
 	<conio.h>
+	<ctype.h>
+	<dos.h>
 
 1668290116 source:c:\users\thiago lucca\desktop\modolos\projeto-pim-2-semestre\provedora de internet\funcaocliente.c
 	"funcaoCliente.h"
@@ -210,4 +216,25 @@
 	<dos.h>
 
 1669076816 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\teste.c
+
+1669157911 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\testefuncaofuncionario.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<ctype.h>
+	<dos.h>
+
+1669159835 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\funcaoservicos.c
+	"funcaoCliente.h"
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<string.h>
+	<time.h>
+	<conio.h>
+	<ctype.h>
+	<dos.h>
 

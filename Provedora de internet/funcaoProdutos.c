@@ -217,6 +217,7 @@ void consultarProdutoClientes()
            {
             printf("Procurando ....    \n");
             printf("Codigo..: %d \nDescricao..: %-8s \nValor..: R$ %4.2f\n", produtos.codigo,produtos.descricaoProduto,produtos.valorProduto);
+
            }
     }
 
@@ -224,6 +225,7 @@ void consultarProdutoClientes()
     {
         printf("Produtos nao encontrados !!!");
         system("pause");
+        system("cls || clean");
         consultarProdutosCli();
     }
     fclose(funProduto);
@@ -232,6 +234,7 @@ void consultarProdutoClientes()
     {
         printf("\nSaindo...\n");
         system("pause");
+        system("cls || clean");
         consultarProdutosCli();
     }
     else
@@ -292,6 +295,7 @@ void adicionarProdutoSolicitados()
         {
             printf("\nINFO. GRAVADAS COM SUCESSO!\n");
             system("pause");
+            system("cls || clean");
         }
     fclose(funProduto);
     consultarProdutosCli();
@@ -337,6 +341,7 @@ void cancelarProduto()
                 fseek(funProduto, sizeof(produtos)* 0, SEEK_END);
                 printf("\nProduto excluido com Sucesso! \n");
                 system("pause>nul");
+                system("cls || clean");
                 consultarProdutosCli();
             }
             else if (certeza == 'n')

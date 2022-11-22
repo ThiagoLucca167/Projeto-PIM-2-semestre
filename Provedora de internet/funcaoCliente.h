@@ -10,5 +10,6 @@ void consultarProduto();
 void tentarNovamente();
 void alterarProduto();
 void consultarProdutosCli();
+void testefuncaoFuncionarios();
 
 #endif // FUNCAOCLIENTE_H_INCLUDED

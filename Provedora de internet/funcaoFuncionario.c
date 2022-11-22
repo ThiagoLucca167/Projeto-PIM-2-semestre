@@ -18,6 +18,7 @@
     char bairro[50];
     char cep[9];
     char numero[20];
+    char deletar;
     }funcionarios;
 
 
@@ -42,10 +43,10 @@ void funcaoFuncionarios()
     {
     case 1:
 
-        cadastroFuncionario();
+        testecadastroFuncionario();
         break;
     case 2:
-        loginFuncionario();
+        testeloginFuncionario();
         break;
     case 3:
         loginAdm();
@@ -79,6 +80,7 @@ void loginAdm()
     if(strcmp(login,loginAdm1)==0 || strcmp(login,loginAdm2)==0 && strcmp(senha,senhaAdm1)==0 || strcmp(senha,senhaAdm2)==0)
     {
         printf("Logado meu chapas sadokoskadodkdoksa");
+        funcaoAdm();
     }
     else
     {

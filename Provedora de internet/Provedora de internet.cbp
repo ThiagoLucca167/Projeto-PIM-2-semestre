@@ -44,6 +44,9 @@
 		<Unit filename="funcaoProdutos.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="funcaoServicos.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -51,6 +54,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="telaFuncionario.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="testeFuncaoFuncionario.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
