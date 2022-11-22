@@ -27,16 +27,82 @@ void telaCliente()
         break;
 
     case 1:
-        printf("consulta de perfil selecionado. \n\n1.Alterar Dados\n2.Consultar Perfil\n3.Incluir Dados\n4.Excluir perfil.");
+        limparTela();
+        consultaPerfil();
         break;
     case 2:
-        printf("consulta de Produtos selecionado. \n\n1.Solicitar Produtos\n2.Consultar Produtos\n3.Sugestão de produtos\n4.Cancelar Produtos.");
+        limparTela();
+        consultarProdutosCli();
         break;
     case 3:
         printf("consulta de Serviços selecionado. \n\n1.Solicitar Serviços\n2.Consultar Serviços\n3.Sugestão de serviços.");
         break;
     default:
-        printf("Selecione uma opção valída!!!");
+        printf("Opção invalída!!!");
+        telaCliente();
     }
 
+}
+void consultaPerfil()
+{
+    int opcao = 0;
+     printf("Consulta de perfil selecionado. \n\n1. Incluir Dados\n2. Consultar Perfil\n3. Alterar Dados\n4. Excluir perfil.\n0. Voltar\n");
+     scanf("%d", &opcao);
+
+     switch(opcao)
+     {
+     case 1:
+        limparTela();
+        adicionarClientesProdutos();
+        break;
+     case 2:
+        limparTela();
+        consultarClientesProdutos();
+        break;
+     case 3:
+        limparTela();
+        alterarClientesProdutos();
+        break;
+     case 4:
+        limparTela();
+        excluirClientesProdutos();
+        break;
+     case 0:
+        limparTela();
+        telaCliente();
+        break;
+     default:
+        printf("Selecione uma opção válida !!!");
+        limparTela();
+        consultaPerfil();
+     }
+}
+
+void consultarProdutosCli()
+{
+    int opcao = 0;
+    printf("Consulta de Produtos selecionado. \n\n1. Consultar Produtos\n2. Solicitar Produtos\n3. Cancelar Produtos.\n0. Voltar\n");
+    scanf("%d", &opcao);
+
+     switch(opcao)
+     {
+     case 1:
+        consultarProdutoClientes();
+        break;
+     case 2:
+       adicionarProdutoSolicitados();
+        break;
+     case 3:
+        limparTela();
+        cancelarProduto();
+        break;
+     case 0:
+         limparTela();
+         telaCliente();
+        break;
+     default:
+        printf("Selecione uma opção válida !!!");
+        limparTela();
+        consultarProdutosCli();
+     }
 }

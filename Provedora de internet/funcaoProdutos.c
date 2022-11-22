@@ -8,6 +8,7 @@
 #include <ctype.h>
 #include <dos.h>
     struct Produto{
+    int cpf;
     int codigo;
     char nomeProduto;
     float valorProduto;
@@ -15,7 +16,6 @@
     int funcionario;
     char deletar;
     };
-
 
 
     FILE *funProduto;
@@ -189,24 +189,168 @@ void alterarProduto()
 
 
 
-
-
-
-void requisitarProduto()
+void consultarProdutoClientes()
 {
-    int opcao=0;
-
-    funProduto = fopen("Produtos e Serviços.txt", "r");
+     funProduto = fopen("Produtos.txt", "rb");
     if(funProduto == NULL){
         printf("\n\tATENCAO o arquivo não pode ser aberto");
         getch();
         exit(1);
     }
 
-    printf("\t\tPacotes e Serviços\n\n\n");
-    printf("1. produto1\n");
-    printf("2. produto2\n");
-    printf("3. produto3\n");
+    struct Produto produtos;
 
+    int encontrado = 0;
+    char i;
+
+    printf("Ver produtos ? S ou N");
+    scanf("%s",&i);
+
+    if(i =='S' || i=='s')
+    {
+        int encontrado = 0;
+        printf ("\nEsses são os produtos que estão disponiveis..: \n");
+
+    while (fread(&produtos, sizeof(produtos), 1, funProduto))
+    {
+           if(encontrado==0)
+           {
+            printf("Procurando ....    \n");
+            printf("Codigo..: %d \nDescricao..: %-8s \nValor..: R$ %4.2f\n", produtos.codigo,produtos.descricaoProduto,produtos.valorProduto);
+           }
+    }
+
+    if (!encontrado)
+    {
+        printf("Produtos nao encontrados !!!");
+        system("pause");
+        consultarProdutosCli();
+    }
+    fclose(funProduto);
+    }
+    else if(i=='n' || i=='N')
+    {
+        printf("\nSaindo...\n");
+        system("pause");
+        consultarProdutosCli();
+    }
+    else
+    {
+        printf("Opção invalida !!!");
+        limparTela();
+        consultarProdutoClientes();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+void adicionarProdutoSolicitados()
+{
+    funProduto = fopen("Produtos.txt", "rb");
+    if(funProduto == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+    struct Produto produtos;
+    int encontrado=0;
+    while (fread(&produtos, sizeof(produtos), 1, funProduto))
+    {
+           if(encontrado==0)
+           {
+            printf("Procurando ....    \n");
+            printf("Codigo..: %d \nDescricao..: %-8s \nValor..: R$ %4.2f\n", produtos.codigo,produtos.descricaoProduto,produtos.valorProduto);
+           }
+    }
+    fclose(funProduto);
+    int voltar;
+
+    funProduto = fopen("Clientes Produtos solicitados.txt", "ab");
+    if(funProduto == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+            printf("Confirme seu CPF..:\n");
+            scanf("%d", &produtos.cpf);
+            printf("Confirme o codigo do produto..:\n");
+            scanf("%d", &produtos.codigo);
+
+
+    voltar = fwrite (&produtos, sizeof(produtos) ,1,funProduto);
+
+    if(voltar == 1)
+        {
+            printf("\nINFO. GRAVADAS COM SUCESSO!\n");
+            system("pause");
+        }
+    fclose(funProduto);
+    consultarProdutosCli();
+}
+
+
+
+
+
+
+
+void cancelarProduto()
+{
+   funProduto = fopen("Clientes Produtos solicitados.txt", "r+b");
+    if(funProduto == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Produto produtos;
+
+    int cod, encontrado = 0;
+    char certeza;
+    printf ("\nDigite o cpf para verificar cancelar os produtos..: \n");
+    scanf ("%d", &cod);
+
+    while (fread (&produtos, sizeof(produtos), 1, funProduto))
+    {
+        if (cod == produtos.cpf)
+        {
+            printf("Usuário..: %d \nCodigo %d \nDescricao: %-8s \nValor R$ %4.2f\n\n",produtos.cpf,produtos.codigo, produtos.descricaoProduto, produtos.valorProduto);
+            encontrado = 1;
+
+            printf("\nTem certeza que quer cancelar este produto? s/n \n");
+            fflush(stdin);
+            scanf("%c", &certeza);
+            if (certeza == 's')
+            {
+                produtos.deletar = '*';
+                fseek(funProduto,sizeof(struct Produto)*-1, SEEK_CUR);
+                fwrite(&produtos, sizeof(produtos), 1, funProduto);
+                fseek(funProduto, sizeof(produtos)* 0, SEEK_END);
+                printf("\nProduto excluido com Sucesso! \n");
+                system("pause>nul");
+                consultarProdutosCli();
+            }
+            else if (certeza == 'n')
+            {
+                system("cls || clear");
+                consultarProdutosCli();
+            }
+        }
+    }
+    if (!encontrado)
+    {
+        printf ("\nCodigo nao cadastrado!!\n");
+        system("pause>nul");
+        consultarProdutosCli();
+    }
     fclose(funProduto);
 }

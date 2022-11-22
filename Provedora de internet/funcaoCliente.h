@@ -9,5 +9,6 @@ void adicionarProduto();
 void consultarProduto();
 void tentarNovamente();
 void alterarProduto();
+void consultarProdutosCli();
 
 #endif // FUNCAOCLIENTE_H_INCLUDED

@@ -187,8 +187,9 @@ void recepcao()
      printf("Selecione..:\n");
     printf("1. Consultar Clientes\n");
     printf("2. Alterar Clientes\n");
-    printf("3. Consultar Produtos\n");
-    printf("4. Alterar Produtos\n");
+    printf("3. Excluir Clientes\n");
+    printf("4. Consultar Produtos\n");
+    printf("5. Alterar Produtos\n");
     printf("0. Voltar\n");
     scanf("%i", &opcao);
 
@@ -202,10 +203,13 @@ void recepcao()
             alterarCliente();
             break;
         case 3:
+            excluirCliente();
+            break;
+        case 4:
             logoTipo();
             consultarProduto();
             break;
-        case 4:
+        case 5:
             logoTipo();
             alterarProduto();
             break;
