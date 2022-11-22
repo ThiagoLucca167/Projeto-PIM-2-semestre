@@ -98,7 +98,7 @@ void admin()
     printf("1. Adicionar Produtos\n");
     printf("2. Consultar Produtos\n");
     printf("3. Alterar produtos\n");
-    printf("4. Excluir produtos");
+    printf("4. Excluir produtos\n");
     system("pause");
     setores();
 }
@@ -109,28 +109,67 @@ void operacao()
     opcao = 0;
 
     logoTipo();
-    printf("Selecione\n1. Cadastrar produtos\n");
-    printf("2. Consultar Produto\n");
-    printf("3. Alterar Produtos\n");
-    printf("4. Excluir Produtos\n\n");
+    printf("Selecione..:\n");
+    printf("1. Consultar Produtos\n");
+    printf("2. Alterar Produtos\n");
+    printf("0. Voltar\n");
     scanf("%i", &opcao);
 
     switch(opcao){
         case 1:
+            logoTipo();
+            consultarProduto();
+            break;
+        case 2:
+            logoTipo();
+            alterarProduto();
+            break;
+        case 0:
+            setores();
+            break;
+    default:
+            printf("opção inválida, tente novamente.");
+            system("pause>nul");
+            operacao();
+    }
+    setores();
+}
+
+void almoxarifado()
+{
+
+    system("cls || clean");
+    opcao = 0;
+
+    logoTipo();
+    printf("Selecione..:\n");
+    printf("1. Cadastrar Produtos\n");
+    printf("2. Consultar Produtos\n");
+    printf("3. Alterar Produtos\n");
+    printf("4. Excluir Produtos\n");
+    printf("0. Voltar\n");
+    scanf("%i", &opcao);
+
+    switch(opcao){
+        case 1:
+            logoTipo();
             adicionarProduto();
             break;
-
         case 2:
+            logoTipo();
             consultarProduto();
             break;
         case 3:
+            logoTipo();
             alterarProduto();
             break;
-
         case 4:
+            logoTipo();
             excluirProduto();
             break;
-
+        case 0:
+            setores();
+            break;
     default:
             printf("opção inválida, tente novamente.");
             system("pause>nul");
@@ -145,26 +184,34 @@ void recepcao()
     opcao = 0;
 
     logoTipo();
-    printf("1. suporte tecnico\n\n");
-    system("pause");
-    setores();
-}
-
-void almoxarifado()
-{
-
-    system("cls || clean");
-    opcao = 0;
-
-    logoTipo();
-    printf("Selecione 1. Consultar produtos...:\n");
+     printf("Selecione..:\n");
+    printf("1. Consultar Clientes\n");
+    printf("2. Alterar Clientes\n");
+    printf("3. Consultar Produtos\n");
+    printf("4. Alterar Produtos\n");
+    printf("0. Voltar\n");
     scanf("%i", &opcao);
 
     switch(opcao){
         case 1:
+            logoTipo();
+            consultarCliente();
+            break;
+        case 2:
+            logoTipo();
+            alterarCliente();
+            break;
+        case 3:
+            logoTipo();
             consultarProduto();
             break;
-
+        case 4:
+            logoTipo();
+            alterarProduto();
+            break;
+        case 0:
+            setores();
+            break;
     default:
             printf("opção inválida, tente novamente.");
             system("pause>nul");
@@ -172,6 +219,8 @@ void almoxarifado()
     }
     setores();
 }
+
+
 
 void perfilFuncionario()
 {

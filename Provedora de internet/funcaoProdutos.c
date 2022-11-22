@@ -7,18 +7,14 @@
 #include <conio.h>
 #include <ctype.h>
 #include <dos.h>
-
-
-int opcao=0;
-
- typedef struct Produto{
+    struct Produto{
     int codigo;
     char nomeProduto;
     float valorProduto;
     char descricaoProduto[50];
     int funcionario;
     char deletar;
-    }produtos;
+    };
 
 
 

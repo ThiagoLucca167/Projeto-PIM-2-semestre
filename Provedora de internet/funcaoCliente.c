@@ -1,197 +1,234 @@
 #include "funcaoCliente.h"
-#include <stdio.h>
+#include<stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 #include <string.h>
-#include <ctype.h>
+#include <time.h>
 #include <conio.h>
-#define TAMANHO 100
-
-    typedef struct clientesArq{
-    char login[20];
-    char senha[20];
-    int usuario[100];
-    char nome[30];
-    char cpf[14];
-    char email[80];
-    char telefone[20];
-    char rua[50];
-    char bairro[50];
-    char cep[9];
-    char numero[20];
-    }clientes;
+#include <ctype.h>
+#include <dos.h>
 
 
-    static int quantidade = 0;
-    clientes maximo[TAMANHO];
+
+    struct Cliente
+    {
+    int codigo;
+    char nomeProduto;
+    float valorProduto;
+    char descricaoProduto[50];
+    int funcionario;
+    char deletar;
+    };
+
+
 
     FILE *funCliente;
 
+
+
 void funcaoCliente()
 {
-    int cliente;
-    char login[30], senha[30];
+    int opcao =0;
+    limparTela();
+    printf("Oque voce deseja fazer ?\n\n");
+    printf("1. Adicionar cadastro\n");
+    printf("2. Consultar cadastro\n");
+    printf("3. Alterar cadastro\n");
+    printf("4. Excluir cadastro\n");
+    printf("0. Voltar\n");
+    scanf("%d",&opcao);
 
-    printf("\n\tSelecionado o perfil cliente !!!\n\n");
-        printf("1.cadastro\n");
-        printf("2.login\n");
-        printf("3.Voltar ao Menu\n");
-        scanf("%i",&cliente);
-    switch(cliente)
+    switch(opcao)
     {
     case 1:
-
-        cadastroCliente();
+        adicionarCliente();
         break;
     case 2:
-        loginCliente();
+        consultarCliente();
         break;
     case 3:
-        limparTela();
-       FuncoesMenuInicial();
+        alterarCliente();
         break;
-
+    case 4:
+        excluirCliente();
+        break;
+    case 0:
+        limparTela();
+        FuncoesMenuInicial();
+        break;
     default:
-        printf("selecione uma opção valida");
+        printf("SELECIONE UMA OPÇÃO VALIDA!!!");
+        funcaoCliente();
     }
 }
 
-void loginCliente()
+void adicionarCliente()
 {
-    char login[100];
-    char senha[100];
-    int voltar=1, contador=0, p=0;
 
-    funCliente =fopen("Clientes.txt", "r");
-     if(funCliente == NULL)
-    {
-        printf("Desculpe arquivo não encontrado");
+    int voltar;
+
+    funCliente = fopen("Clientes.txt", "ab");
+    if(funCliente == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
     }
+            struct Cliente clientes;
 
+            printf("Digite os numeros do seu cpf sem pontuação..: \n");
+            scanf("%d", &clientes.codigo);
+            printf("Informe seu nome completo..: \n");
+            fflush(stdin);
+            gets(clientes.descricaoProduto);
+            printf("informe seu salario..: \n");
+            scanf("%f", &clientes.valorProduto);
 
-    printf("\nLogin: ");
-    gets(login);
-    gets(login);
-     printf("Senha: ");
-    gets(senha);
+    voltar = fwrite (&clientes, sizeof(clientes) ,1,funCliente);
 
-
-    voltar = fread (&maximo[contador].login, sizeof(clientes) ,1,funCliente);
-
-    while(voltar == 1)
-    {
-        if(strcmp(login,maximo[p].login)==0 && strcmp(senha,maximo[p].senha)==0)
+    if(voltar == 1)
         {
-             printf("\nSucesso!");
-             limparTela();
-             printf("\nBem vindo...: %s",maximo[p].login);
-             contador++;
-             telaCliente();
+            printf("\nINFO. GRAVADAS COM SUCESSO!\n");
+            fclose(funCliente);
+            system("pause");
+            funcaoCliente();
         }
-        p++;
-        voltar = fread (&maximo[p].login, sizeof(clientes) ,1,funCliente);
-    }
-    if(contador==0)
-    {
-        tentarNovamente();
-    }
-fclose(funCliente);
+
 }
 
-void tentarNovamente()
+void consultarCliente()
 {
-    char tentativas;
-        int i;
-        printf("\nNenhum resultado encontrado\nTentar novamente S/N...: ");
-        scanf("%s",&tentativas);
-                if(tentativas == 's' || tentativas == 'S' && tentativas!= 'n' && tentativas!= 'N')
-                {
-                  loginCliente();
-                }
-                else if(tentativas == 'n' || tentativas == 'N')
-                  {
-                      printf("\nSaindo da tela de login.....\n");
-                      limparTela();
-                      funcaoCliente();
-                  }
-                else if (tentativas != 's' && tentativas != 'S' && tentativas!= 'n' && tentativas!= 'N'){
-                    printf("Opção invalída !!!\n");
-                    tentarNovamente();
-                }
-}
-
-void cadastroCliente()
-{
-    adicionar();
-}
-
-void consultar()
-{
-    int voltar,contador=0,t;
-    char nome[30];
-
-
-        fclose(funCliente);
-}
-void adicionar()
-{
-    int contador=0, voltar;
-
-
-
-    funCliente =fopen("Clientes.txt", "a");
+    funCliente = fopen("Clientes.txt", "rb");
     if(funCliente == NULL){
         printf("\n\tATENCAO o arquivo não pode ser aberto");
         getch();
         exit(1);
     }
 
-    while (contador < TAMANHO)
+    struct Cliente clientes;
+
+    int encontrado = 0,cod;
+
+    printf ("\nDigite o numero do seu CPF* sem pontuação..: \n");
+    scanf ("%d", &cod);
+
+    while (fread(&clientes, sizeof(clientes), 1, funCliente))
     {
-        printf("VAMOS DAR INICIO NO CADASTRO\n");
-        gets(maximo[contador].usuario);
-        if(maximo[contador].usuario)
+
+    printf("Buscando ....    \n");
+
+        if ((cod == clientes.codigo)  && (clientes.deletar != '*'))
         {
-          int i = 0;
+            printf("Usuario..: %d \nNome..: %-8s \nSalario..: R$ %4.2f\n", clientes.codigo,clientes.descricaoProduto,clientes.valorProduto);
+            encontrado = 1;
+            system("pause>nul");
+            funcaoCliente();
 
-          for(i=1;i <=1;i++)
-          {
-            printf("\n\tCADASTRO...: \n");
-            printf("SELECIONE UM NOME DE USUÁRIO: ");
-            gets(maximo[contador].login);
-            printf("SENHA: ");
-            gets(maximo[contador].senha);
-            printf("Digite seu Nome: ");
-            gets(maximo[contador].nome);
-            printf("Digite seu CPF: ");
-            gets(maximo[contador].cpf);
-            printf("Digite seu E-mail: ");
-            gets(maximo[contador].email);
-            printf("Telefone : ");
-            gets(maximo[contador].telefone);
-            printf("\n\tENDEREÇO...: \n");
-            printf("RUA: ");
-            gets(maximo[contador].rua);
-            printf("Numero e Complemento caso tenha: ");
-            gets(maximo[contador].numero);
-            printf("Bairro: ");
-            gets(maximo[contador].bairro);
-            printf("CEP: ");
-            gets(maximo[contador].cep);
-          }
-          voltar = fwrite (&maximo[contador], sizeof(clientes) ,1,funCliente);
+        }
+    }
+    if (!encontrado)
+    {
+        printf("\nCodigo nao cadastrado!!\n");
+        system("pause");
+       funcaoCliente();
+    }
+    fclose(funCliente);
+}
 
-              if(voltar == 1)
+void excluirCliente()
+{
+   funCliente = fopen("Clientes.txt", "r+b");
+    if(funCliente == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Cliente clientes;
+
+    int cod, encontrado = 0;
+    char certeza;
+    printf ("\nDigite o CPF que deseja EXCLUIR..: \n");
+    scanf ("%d", &cod);
+
+    while (fread (&clientes, sizeof(clientes), 1, funCliente))
+    {
+        if (cod == clientes.codigo)
+        {
+            printf("Usuario..: %d \nNome..: %-8s  \nSalario..: R$ %4.2f\n\n",clientes.codigo, clientes.descricaoProduto, clientes.valorProduto);
+            encontrado = 1;
+
+            printf("\nTem certeza que quer excluir este perfil? s/n \n");
+            fflush(stdin);
+            scanf("%c", &certeza);
+            if (certeza == 's')
             {
-                printf("\nINFO. GRAVADAS COM SUCESSO!\n");
+                clientes.deletar = '*';
+                fseek(funCliente,sizeof(struct Cliente)*-1, SEEK_CUR);
+                fwrite(&clientes, sizeof(clientes), 1, funCliente);
+                fseek(funCliente, sizeof(clientes)* 0, SEEK_END);
+                printf("\nPerfil excluido com Sucesso! \n");
                 limparTela();
                 funcaoCliente();
             }
+            else if (certeza == 'n')
+            {
+                system("cls || clear");
+            }
         }
+    }
+    if (!encontrado)
+    {
+        printf ("\nPerfil nao cadastrado!!\n");
+        limparTela();
+        funcaoCliente();
+    }
+    fclose(funCliente);
+}
 
 
 
-         exit(contador);
 
+void alterarCliente()
+{
+  funCliente = fopen("Clientes.txt", "r+b");
+    if(funCliente == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Cliente clientes;
+    int cod, encontrado = 0;
+    printf ("\nDigite o cpf que deseja alterar: \n");
+    scanf ("%d", &cod);
+
+    while (fread (&clientes, sizeof(clientes), 1, funCliente))
+    {
+        if (cod == clientes.codigo)
+        {
+            printf("Usuario..: %d \nnome..: %-8s \nSalario R$ %4.2f\n\n",clientes.codigo, clientes.descricaoProduto, clientes.valorProduto);
+            encontrado = 1;
+
+            fseek(funCliente,sizeof(struct Cliente)*-1, SEEK_CUR);
+            printf("\nDigite um novo nome..: \n");
+            fflush(stdin);
+            gets(clientes.descricaoProduto);
+            printf("\nDigite o novo Salario..: \n");
+            scanf("%f", &clientes.valorProduto);
+
+            fwrite(&clientes, sizeof(clientes), 1, funCliente);
+            fseek(funCliente, sizeof(clientes)* 0, SEEK_END);
+
+            printf("\n Dados do perfil alterados com sucesso!");
+            limparTela();
+            funcaoCliente();
+        }
+    }
+    if (!encontrado)
+    {
+        printf("\nCodigo nao cadastrado!!\n");
+        limparTela();
+        funcaoCliente();
     }
     fclose(funCliente);
 }

@@ -121,7 +121,6 @@ void loginFuncionario()
     }
     if(contador==0)
     {
-        tentarNovamente();
     }
 
 fclose(funFuncionarios);
