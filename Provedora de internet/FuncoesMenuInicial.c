@@ -9,9 +9,10 @@ void FuncoesMenuInicial()
     printf("\nMENU INICIAL*\n\nSelecione o que fazer...: \n\n");
     printf("1. Cliente\n");
     printf("2. Funcionario\n");
-    printf("3. Sobre Nós\n");
-    printf("4. Participantes\n");
-    printf("5. Configurações de tela\n");
+    printf("3. Administrador\n");
+    printf("4. Sobre Nós\n");
+    printf("5. Participantes\n");
+    printf("6. Configurações de tela\n");
     printf("0. Sair\n");
     scanf("%i",&validacoes);
 
@@ -24,12 +25,15 @@ void FuncoesMenuInicial()
         funcaoFuncionarios();
         break;
     case 3:
-        sobreNos();
+        funcaoAdm();
         break;
     case 4:
-        participantes();
+        sobreNos();
         break;
     case 5:
+        participantes();
+        break;
+    case 6:
         system("cls || clean");
        printf("\n\tSelecionada Configurações de tela...: \n\n");
        configuracaoTela();

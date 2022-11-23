@@ -108,21 +108,23 @@
 	<ctype.h>
 	<conio.h>
 
-1669158168 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\funcaofuncionario.c
+1669164434 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\funcaofuncionario.c
 	"funcaoCliente.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 	<conio.h>
+	<ctype.h>
+	<dos.h>
 
-1669156450 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\funcoesmenuinicial.c
+1669164529 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\funcoesmenuinicial.c
 	"funcaoCliente.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1669159195 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\telafuncionario.c
+1669164799 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\telafuncionario.c
 	"funcaoCliente.h"
 	<stdio.h>
 	<stdlib.h>
@@ -217,7 +219,7 @@
 
 1669076816 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\teste.c
 
-1669157911 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\testefuncaofuncionario.c
+1669163971 source:c:\users\matheus\desktop\projeto-pim-2-semestre\provedora de internet\testefuncaofuncionario.c
 	"funcaoCliente.h"
 	<stdio.h>
 	<stdlib.h>

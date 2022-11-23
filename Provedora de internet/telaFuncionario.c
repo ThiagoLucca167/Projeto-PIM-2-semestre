@@ -185,7 +185,7 @@ void perfilFuncionario()
     {
         case 1:
             system("cls || clean");
-            testeconsultarFuncionario();
+            consultarFuncionario();
 
     }
 }
@@ -198,7 +198,8 @@ void funcaoAdm()
     logoTipo();
     printf("1.dados de funcionarios\n");
     printf("2.almoxarifado\n");
-    printf("3.dados de clientes\n\n");
+    printf("3.dados de clientes\n");
+    printf("4.Voltar\n");
     scanf("%i", &opcao);
 
     switch(opcao)
@@ -213,6 +214,11 @@ void funcaoAdm()
 
         case 3:
             perfilClienteADM();
+            break;
+
+        case 4:
+            system("cls || clean");
+            FuncoesMenuInicial();
             break;
 
         default:
@@ -237,19 +243,19 @@ void perfilFuncionarioADM()
     switch(opcao)
     {
         case 1:
-            testecadastroFuncionario();
+            cadastroFuncionario();
             break;
 
         case 2:
-            testeconsultarFuncionario();
+            consultarFuncionario();
             break;
 
         case 3:
-            testealterarFuncionario();
+            alterarFuncionario();
             break;
 
         case 4:
-            testeexcluirFuncionario();
+            excluirFuncionario();
             break;
 
         case 5:
@@ -348,6 +354,7 @@ void perfilClienteADM()
     printf("2. Alterar Cliente\n");
     printf("3. Consultar Cliente\n");
     printf("4. Excluir Cliente\n");
+    printf("5. Voltar\n");
     scanf("%i", &opcao);
 
     switch(opcao)
