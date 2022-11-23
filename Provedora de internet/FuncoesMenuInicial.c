@@ -66,7 +66,9 @@ void participantes()
     printf("\n Kelson nascimento oliveira RA: G525CB-4");
     printf("\n Leonardo Luiz Silva de Paula RA: G154BE3");
     printf("\n Matheus Cavalcanti Soares RA: G433JE8");
-    printf("\n Thiago Lucca Rodrigues Martins De Santana RA: N8444J-0\n");
+    printf("\n Thiago Lucca Rodrigues Martins De Santana RA: N8444J-0\n\n");
+    limparTela();
+    FuncoesMenuInicial();
 }
 
 
@@ -116,5 +118,7 @@ void limparTela()
 
 void sobreNos()
 {
-    printf("sobre nos");
+    printf("sobre nos\n\n");
+    limparTela();
+    FuncoesMenuInicial();
 }

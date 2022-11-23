@@ -21,7 +21,7 @@
 void funcaoFuncionarios()
 {
 
-    int funcionarios;
+    int funcionarios=0;
     char login, senha;
     system("cls || clear");
     printf("\n\tSelecionado o perfil funcinario !!!\n\n");
@@ -52,8 +52,40 @@ void funcaoFuncionarios()
 
 void loginFuncionario()
 {
-    telaFuncionario();
+    funFuncionarios = fopen("Funcionarios.txt", "rb");
+    if(funFuncionarios == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
 
+    struct Funcionario funcionarios;
+
+    int encontrado = 0,cod;
+
+    printf ("\nLogin utilize seu CPF para entrar..: \n");
+    scanf ("%d", &cod);
+
+    while (fread(&funcionarios, sizeof(funcionarios), 1, funFuncionarios))
+    {
+    system("cls || clean");
+    printf("\nVerifincando .... \n\n");
+
+        if ((cod == funcionarios.codigo)  && (funcionarios.deletar != '*'))
+        {
+            printf("Bem Vindo..: %-8s \n",funcionarios.nome);
+            encontrado = 1;
+           telaFuncionario();
+
+        }
+    }
+    if (!encontrado)
+    {
+        printf("\nCodigo nao cadastrado!!\n");
+        system("pause");
+       funcaoFuncionarios();
+    }
+    fclose(funFuncionarios);
 }
 
 
@@ -70,8 +102,6 @@ void adicionarF()
 {
     int contador=0, voltar;
 
-    struct Funcionario funcionarios;
-
     funFuncionarios =fopen("Funcionarios.txt", "a");
     if(funFuncionarios == NULL){
         printf("\n\tATENCAO o arquivo não pode ser aberto");
@@ -79,7 +109,7 @@ void adicionarF()
         exit(1);
     }
 
-        printf("VAMOS DAR INICIO NO CADASTRO\n");
+    struct Funcionario funcionarios;
 
             printf("Digite os numeros do seu cpf sem pontuação..: \n");
             scanf("%d", &funcionarios.codigo);
@@ -94,6 +124,9 @@ void adicionarF()
         if(voltar == 1)
         {
             printf("\nINFO. GRAVADAS COM SUCESSO!\n");
+            fclose(funFuncionarios);
+            limparTela();
+
         }
 
 
@@ -123,18 +156,18 @@ void consultarFuncionario()
 
     printf("Buscando ....    \n");
 
-        if ((cod == funcionarios.cpf)  && (funcionarios.deletar != '*'))
+        if ((cod == funcionarios.codigo)  && (funcionarios.deletar != '*'))
         {
-            printf("CPF..: %d \nNome..: %-8s \nSalario..: R$ %4.2f\n", funcionarios.cpf,funcionarios.nome,funcionarios.salario);
+            printf("CPF..: %d \nNome..: %-8s \nSalario..: R$ %4.2f\n", funcionarios.codigo,funcionarios.nome,funcionarios.salario);
             encontrado = 1;
             system("pause>nul");
+
         }
     }
     if (!encontrado)
     {
         printf("\nCodigo nao cadastrado!!\n");
         system("pause");
-        operacao();
     }
     fclose(funFuncionarios);
 }
@@ -175,14 +208,12 @@ void alterarFuncionario()
 
             printf("\n Dados do perfil alterados com sucesso!");
             limparTela();
-            perfilFuncionario();
         }
     }
     if (!encontrado)
     {
         printf("\nCodigo nao cadastrado!!\n");
         limparTela();
-        perfilFuncionario();
     }
     fclose(funFuncionarios);
 }
@@ -220,7 +251,6 @@ void excluirFuncionario()
                 fseek(funFuncionarios, sizeof(funcionarios)* 0, SEEK_END);
                 printf("\nPerfil excluido com Sucesso! \n");
                 limparTela();
-                perfilFuncionario();
             }
             else if (certeza == 'n')
             {
@@ -232,7 +262,6 @@ void excluirFuncionario()
     {
         printf ("\nPerfil nao cadastrado!!\n");
         limparTela();
-        perfilFuncionario();
     }
     fclose(funFuncionarios);
 }

@@ -86,7 +86,6 @@ void adicionarCliente()
             printf("\nINFO. GRAVADAS COM SUCESSO!\n");
             fclose(funCliente);
             system("pause");
-            funcaoCliente();
         }
 
 }
@@ -117,7 +116,6 @@ void consultarCliente()
             printf("Usuario..: %d \nNome..: %-8s \nSalario..: R$ %4.2f\n", clientes.codigo,clientes.descricaoProduto,clientes.valorProduto);
             encontrado = 1;
             system("pause>nul");
-            funcaoCliente();
 
         }
     }
@@ -125,7 +123,6 @@ void consultarCliente()
     {
         printf("\nPerfil nao cadastrado!!\n");
         system("pause");
-       funcaoCliente();
     }
     fclose(funCliente);
 }
@@ -164,7 +161,6 @@ void excluirCliente()
                 fseek(funCliente, sizeof(clientes)* 0, SEEK_END);
                 printf("\nPerfil excluido com Sucesso! \n");
                 limparTela();
-                funcaoCliente();
             }
             else if (certeza == 'n')
             {
@@ -176,7 +172,6 @@ void excluirCliente()
     {
         printf ("\nPerfil nao cadastrado!!\n");
         limparTela();
-        funcaoCliente();
     }
     fclose(funCliente);
 }
@@ -217,14 +212,12 @@ void alterarCliente()
 
             printf("\n Dados do perfil alterados com sucesso!");
             limparTela();
-            funcaoCliente();
         }
     }
     if (!encontrado)
     {
         printf("\nCodigo nao cadastrado!!\n");
         limparTela();
-        funcaoCliente();
     }
     fclose(funCliente);
 }
@@ -334,6 +327,7 @@ void consultarClientesProdutos()
             printf("Usuario..: %d \nNome..: %-8s \nSalario..: R$ %4.2f\n", clientes.codigo,clientes.descricaoProduto,clientes.valorProduto);
             encontrado = 1;
             system("pause>nul");
+            system("cls || clean");
             consultaPerfil();
         }
     }

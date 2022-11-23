@@ -1,0 +1,110 @@
+-tela inicial
+	-cliente(TUDO CERTO)
+		-adicionar cadastro(ok)
+		-alterar cadastro(ok)
+		-login(ok)
+		-voltar(ok)
+
+
+		-telaCliente
+			-consultar perfil(TUDO CERTO)
+				-incluir dados(ok)
+				-consultar perfil(ok)
+				-alterar dados(ok)
+				-excluir perfil(ok)
+				-voltar(ok)
+
+			-consultar Produtos(TUDO CERTO)
+				-consultar produtos(ok)
+				-solicitar produtos(ok)
+				-cancelar produtos(ok)
+				-voltar(ok)
+
+			-consultar serviços
+				-solicitar serviços(ok)
+				-consultar serviços(ok)
+				-Cancelar serviço solicitado(ok)
+				-voltar(ok)
+
+			-voltar ao menu inicial(ok)
+
+
+	-Funcionario(ok)
+		-cadastro(ok)
+
+		-login(ok)
+			-Setores(arrumar recepção)
+				-operação(TUDO CERTO)
+					-alterar produtos(ok)
+					-consultar produtos(ok)
+					-alterar serviços(ok)
+					-consultar serviços(ok)
+					-voltar(ok)
+
+				-recepção(TUDO CERTO)
+					-consultar clientes(ok)
+					-alterar clientes(ok)
+					-excluir clientes(ok)
+					-consultar produtos(ok)
+					-alterar produtos(ok)
+					-voltar(ok)
+
+				-almoxarifado(TUDO CERTO)
+					-adicionar produtos(ok)
+					-consultar produtos(ok)
+					-alterar produtos(ok)
+					-adicionar serviços(ok)
+					-consultar serviços(ok)
+					-alterar serviços(ok)
+
+				-voltar(ok)
+
+			-Dados de perfil(TUDO CERTO)
+				-consulta de dados(ok)
+				-voltar(ok)
+
+			-logout(ok)
+
+		-voltar ao menu(ok)
+
+
+	-Administrador
+		-dados de funcionarios(TUDO CERTO)
+			-cadastrar funcionario(ok)
+			-consultar funcionario(ok)
+			-alterar funcionario(ok)
+			-excluir funcionario(ok)
+			-voltar(ok)
+
+		-almoxarifado(TUDO CERTO)
+			-adicionar produtos(ok)
+			-consultar produtos(ok)
+			-alterar produtos(ok)
+			-excluir produtos(ok)
+			-adicionar serviços(ok)
+			-consultar serviços(ok)
+			-alterar serviços(ok)
+			-excluir serviços(ok)
+			-voltar(ok)
+
+		-dados de clientes(TUDO CERTO)
+			-adicionar cliente(ok)
+			-alterar cliente(ok)
+			-consultar cliente(ok)
+			-excluir cliente(ok)
+
+		-voltar(ok)
+
+
+	-sobre nós(COLOCAR DESCRIÇÃO)
+
+	-participantes(TUDO CERTO)
+
+	-configuraçoes de tela(TUDO CERTO)
+		-padrao(ok)
+		-fundo azul com letra branca(ok)
+		-fundo branco com letra preta(ok)
+		-fundo amarelo com letra azul(ok [cores de doer os olhos])
+		-voltar(ok)
+
+	-sair(TUDO CERTO)

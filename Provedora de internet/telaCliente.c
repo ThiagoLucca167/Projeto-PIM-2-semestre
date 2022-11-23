@@ -35,7 +35,8 @@ void telaCliente()
         consultarProdutosCli();
         break;
     case 3:
-        printf("consulta de Serviços selecionado. \n\n1.Solicitar Serviços\n2.Consultar Serviços\n3.Sugestão de serviços.");
+        limparTela();
+        consultarServicoCli();
         break;
     default:
         printf("Opção invalída!!!");
@@ -105,4 +106,39 @@ void consultarProdutosCli()
         limparTela();
         consultarProdutosCli();
      }
+}
+
+void consultarServicoCli()
+{
+    int opcao = 0;
+    printf("consulta de Serviços selecionado. \n\n1.Solicitar Serviços\n2.Consultar Serviços\n3.Cancelar serviço solicitado.\n4.Voltar.");
+    scanf("%i", &opcao);
+
+    switch(opcao)
+    {
+        case 1:
+            limparTela();
+            adicionarServicoSolicitados();
+            break;
+
+        case 2:
+            consultarServicoClientes();
+            limparTela();
+            break;
+
+        case 3:
+            cancelarServico();
+            limparTela();
+            break;
+
+        case 4:
+            telaCliente();
+            limparTela();
+            break;
+
+        default:
+            printf("opção inválida, tente novamente");
+            system("pause");
+            consultarServicoCli();
+    }
 }

@@ -84,7 +84,7 @@ void consultarProduto()
     {
         printf("\nCodigo nao cadastrado!!\n");
         system("pause");
-        operacao();
+
     }
     fclose(funProduto);
 }
@@ -179,6 +179,7 @@ void alterarProduto()
     if (!encontrado)
     {
         printf("\nCodigo nao cadastrado!!\n");
+        setores();
     }
     fclose(funProduto);
 }
@@ -216,8 +217,9 @@ void consultarProdutoClientes()
            if(encontrado==0)
            {
             printf("Procurando ....    \n");
-            printf("Codigo..: %d \nDescricao..: %-8s \nValor..: R$ %4.2f\n", produtos.codigo,produtos.descricaoProduto,produtos.valorProduto);
-
+            printf("Produto..: %d \nDescricao..: %-8s \nValor..: R$ %4.2f\n\n", produtos.codigo,produtos.descricaoProduto,produtos.valorProduto);
+            system("pause>nul");
+            consultarProdutosCli();
            }
     }
 
@@ -241,7 +243,7 @@ void consultarProdutoClientes()
     {
         printf("Opção invalida !!!");
         limparTela();
-        consultarProdutoClientes();
+        consultarProdutosCli();
     }
 }
 
@@ -271,7 +273,7 @@ void adicionarProdutoSolicitados()
            if(encontrado==0)
            {
             printf("Procurando ....    \n");
-            printf("Codigo..: %d \nDescricao..: %-8s \nValor..: R$ %4.2f\n", produtos.codigo,produtos.descricaoProduto,produtos.valorProduto);
+            printf("Codigo..: %d \nDescricao..: %-8s \nValor..: R$ %4.2f\n\n\n", produtos.codigo,produtos.descricaoProduto,produtos.valorProduto);
            }
     }
     fclose(funProduto);
@@ -296,6 +298,7 @@ void adicionarProdutoSolicitados()
             printf("\nINFO. GRAVADAS COM SUCESSO!\n");
             system("pause");
             system("cls || clean");
+            consultarProdutosCli();
         }
     fclose(funProduto);
     consultarProdutosCli();

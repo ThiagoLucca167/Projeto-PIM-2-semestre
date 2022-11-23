@@ -146,21 +146,26 @@ void recepcao()
 
     switch(opcao){
         case 1:
+            system("cls || clean");
             logoTipo();
             consultarCliente();
             break;
         case 2:
+            system("cls || clean");
             logoTipo();
             alterarCliente();
             break;
         case 3:
+            system("cls || clean");
             excluirCliente();
             break;
         case 4:
+            system("cls || clean");
             logoTipo();
             consultarProduto();
             break;
         case 5:
+            system("cls || clean");
             logoTipo();
             alterarProduto();
             break;
@@ -187,7 +192,7 @@ void almoxarifado()
     printf("2. Consultar Produtos\n");
     printf("3. Alterar produtos\n");
     printf("4. Adicionar Serviços\n");
-    printf("5. Consultar Servilços\n");
+    printf("5. Consultar Serviços\n");
     printf("6. Alterar Serviços\n");
     printf("0. Voltar\n");
     scanf("%i", &opcao);
@@ -221,13 +226,13 @@ void almoxarifado()
         case 5:
             system("cls || clean");
             logoTipo();
-            alterarServico();
+            consultarServico();
             break;
 
         case 6:
             system("cls || clean");
             logoTipo();
-            consultarServico();
+            alterarServico();
             break;
 
         case 0:
@@ -250,6 +255,7 @@ void perfilFuncionario()
 
     logoTipo();
     printf("1.consulta de dados\n");
+    printf("2.voltar\n");
     scanf("%i", &opcao);
 
     switch(opcao)
@@ -257,6 +263,11 @@ void perfilFuncionario()
         case 1:
             system("cls || clean");
             consultarFuncionario();
+            break;
+
+        case 2:
+            telaFuncionario();
+            break;
 
         default:
             printf("opção inválida, tente novamente.");
@@ -315,7 +326,7 @@ void perfilFuncionarioADM()
     printf("3. alterar funcionario\n");
     printf("4. excluir funcionario\n");
     printf("5. voltar\n\n");
-    scanf("%i", opcao);
+    scanf("%i", &opcao);
 
     switch(opcao)
     {
@@ -359,7 +370,7 @@ void almoxarifadoADM()
     printf("3. Alterar produtos\n");
     printf("4. Excluir produtos\n");
     printf("5. Adicionar Serviços\n");
-    printf("6. Consultar Servilços\n");
+    printf("6. Consultar Serviços\n");
     printf("7. Alterar Serviços\n");
     printf("8. Excluir Serviços\n");
     printf("0. Voltar\n");
@@ -400,13 +411,13 @@ void almoxarifadoADM()
         case 6:
             system("cls || clean");
             logoTipo();
-            alterarServico();
+            consultarServico();
             break;
 
         case 7:
             system("cls || clean");
             logoTipo();
-            consultarServico();
+            alterarServico();
             break;
 
         case 8:

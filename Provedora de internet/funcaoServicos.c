@@ -84,7 +84,6 @@ void consultarServico()
     {
         printf("\nCodigo nao cadastrado!!\n");
         system("pause");
-        operacao();
     }
     fclose(funServico);
 }
@@ -179,6 +178,178 @@ void alterarServico()
     if (!encontrado)
     {
         printf("\nCodigo nao cadastrado!!\n");
+    }
+    fclose(funServico);
+}
+
+
+void consultarServicoClientes()
+{
+     funServico = fopen("Serviços.txt", "rb");
+    if(funServico == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Servico servicos;
+
+    int encontrado = 0;
+    char i;
+
+    printf("Ver serviços ? S ou N");
+    scanf("%s",&i);
+
+    if(i =='S' || i=='s')
+    {
+        int encontrado = 0;
+        printf ("\nEsses são os serviços que estão disponiveis..: \n");
+
+    while (fread(&servicos, sizeof(servicos), 1, funServico))
+    {
+           if(encontrado==0)
+           {
+            printf("Procurando ....    \n");
+            printf("Codigo..: %d \nDescricao..: %-8s \nValor..: R$ %4.2f\n", servicos.codigo,servicos.descricaoServico,servicos.valorServico);
+
+           }
+    }
+
+    if (!encontrado)
+    {
+        printf("Serviços não encontrados !!!");
+        system("pause");
+        system("cls || clean");
+        consultarServicoCli();
+    }
+    fclose(funServico);
+    }
+    else if(i=='n' || i=='N')
+    {
+        printf("\nSaindo...\n");
+        system("pause");
+        system("cls || clean");
+        consultarProdutosCli();
+    }
+    else
+    {
+        printf("Opção invalida !!!");
+        limparTela();
+        consultarServicoClientes();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+void adicionarServicoSolicitados()
+{
+    funServico = fopen("Serviços.txt", "rb");
+    if(funServico == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+    struct Servico servicos;
+    int encontrado=0;
+    while (fread(&servicos, sizeof(servicos), 1, funServico))
+    {
+           if(encontrado==0)
+           {
+            printf("Procurando ....    \n");
+            printf("Codigo..: %d \nDescricao..: %-8s \nValor..: R$ %4.2f\n", servicos.codigo,servicos.descricaoServico,servicos.valorServico);
+           }
+    }
+    fclose(funServico);
+    int voltar;
+
+    funServico = fopen("Clientes Serviços solicitados.txt", "ab");
+    if(funServico == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+            printf("Confirme seu CPF..:\n");
+            scanf("%d", &servicos.cpf);
+            printf("Confirme o codigo do Serviço..:\n");
+            scanf("%d", &servicos.codigo);
+
+
+    voltar = fwrite (&servicos, sizeof(servicos) ,1,funServico);
+
+    if(voltar == 1)
+        {
+            printf("\nINFO. GRAVADAS COM SUCESSO!\n");
+            system("pause");
+            system("cls || clean");
+        }
+    fclose(funServico);
+    consultarServicoCli();
+}
+
+
+
+
+
+
+
+void cancelarServico()
+{
+   funServico = fopen("Clientes Serviços solicitados.txt", "r+b");
+    if(funServico == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Servico servicos;
+
+    int cod, encontrado = 0;
+    char certeza;
+    printf ("\nDigite o cpf para verificar cancelamento dos Serviços..: \n");
+    scanf ("%d", &cod);
+
+    while (fread (&servicos, sizeof(servicos), 1, funServico))
+    {
+        if (cod == servicos.cpf)
+        {
+            printf("Usuário..: %d \nCodigo %d \nDescricao: %-8s \nValor R$ %4.2f\n\n",servicos.cpf,servicos.codigo, servicos.descricaoServico, servicos.valorServico);
+            encontrado = 1;
+
+            printf("\nTem certeza que quer cancelar este Serviço? s/n \n");
+            fflush(stdin);
+            scanf("%c", &certeza);
+            if (certeza == 's')
+            {
+                servicos.deletar = '*';
+                fseek(funServico,sizeof(struct Servico)*-1, SEEK_CUR);
+                fwrite(&servicos, sizeof(servicos), 1, funServico);
+                fseek(funServico, sizeof(servicos)* 0, SEEK_END);
+                printf("\nServiço excluido com Sucesso! \n");
+                system("pause>nul");
+                system("cls || clean");
+                consultarServicoCli();
+            }
+            else if (certeza == 'n')
+            {
+                system("cls || clear");
+                consultarServicoCli();
+            }
+        }
+    }
+    if (!encontrado)
+    {
+        printf ("\nCodigo nao cadastrado!!\n");
+        system("pause>nul");
+        consultarServicoCli();
     }
     fclose(funServico);
 }
