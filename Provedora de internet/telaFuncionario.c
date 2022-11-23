@@ -36,7 +36,7 @@ void telaFuncionario()
 
         default:
             printf("opção inválida, tente novamente.");
-            system("pause>nul");
+            system("pause");
             telaFuncionario();
     }
 }
@@ -51,7 +51,8 @@ void setores()
     logoTipo();
     printf("\t1. operação.\n");
     printf("\t2. Recepção.\n");
-    printf("\t3. Voltar.\n\n");
+    printf("\t3. almoxarifado.\n");
+    printf("\t4. Voltar.\n\n");
     scanf("%i", &opcao);
 
     switch(opcao)
@@ -65,12 +66,16 @@ void setores()
             break;
 
         case 3:
+            almoxarifado();
+            break;
+
+        case 4:
             telaFuncionario();
             break;
 
         default:
             printf("opção inválida, tente novamente.");
-            system("pause>nul");
+            system("pause");
             setores();
     }
 }
@@ -82,9 +87,9 @@ void operacao()
 
     logoTipo();
     printf("Selecione..:\n");
-    printf("1. Adicionar Produtos\n");
+    printf("1. Alterar Produtos\n");
     printf("2. Consultar Produtos\n");
-    printf("3. Adicionar Serviços\n");
+    printf("3. Alterar Serviços\n");
     printf("4. Consultar Serviços\n");
     printf("0. Voltar\n");
     scanf("%i", &opcao);
@@ -93,7 +98,7 @@ void operacao()
         case 1:
             system("cls || clean");
             logoTipo();
-            adicionarProduto();
+            alterarProduto();
             break;
         case 2:
             system("cls || clean");
@@ -104,7 +109,7 @@ void operacao()
         case 3:
             system("cls || clean");
             logoTipo();
-            adicionarServico();
+            alterarServico();
             break;
 
         case 4:
@@ -118,7 +123,7 @@ void operacao()
             break;
     default:
             printf("opção inválida, tente novamente.");
-            system("pause>nul");
+            system("pause");
             operacao();
     }
     setores();
@@ -164,13 +169,79 @@ void recepcao()
             break;
     default:
             printf("opção inválida, tente novamente.");
-            system("pause>nul");
+            system("pause");
             operacao();
     }
     setores();
 }
 
+void almoxarifado()
+{
+    system("cls || clean");
+    opcao = 0;
 
+    logoTipo();
+    printf("Bem vindo ao almoxarifado!\n");
+    printf("O que deseja fazer ?!\n");
+    printf("1. Adicionar Produtos\n");
+    printf("2. Consultar Produtos\n");
+    printf("3. Alterar produtos\n");
+    printf("4. Adicionar Serviços\n");
+    printf("5. Consultar Servilços\n");
+    printf("6. Alterar Serviços\n");
+    printf("0. Voltar\n");
+    scanf("%i", &opcao);
+
+    switch(opcao)
+    {
+        case 1:
+            system("cls || clean");
+            logoTipo();
+            adicionarProduto();
+            break;
+
+        case 2:
+            system("cls || clean");
+            logoTipo();
+            consultarProduto();
+            break;
+
+        case 3:
+            system("cls || clean");
+            logoTipo();
+            alterarProduto();
+            break;
+
+        case 4:
+            system("cls || clean");
+            logoTipo();
+            adicionarServico();
+            break;
+
+        case 5:
+            system("cls || clean");
+            logoTipo();
+            alterarServico();
+            break;
+
+        case 6:
+            system("cls || clean");
+            logoTipo();
+            consultarServico();
+            break;
+
+        case 0:
+            setores();
+            break;
+
+        default:
+            printf("opção inválida, tente novamente.");
+            system("pause");
+            almoxarifado();
+
+
+    }
+}
 
 void perfilFuncionario()
 {
@@ -186,6 +257,11 @@ void perfilFuncionario()
         case 1:
             system("cls || clean");
             consultarFuncionario();
+
+        default:
+            printf("opção inválida, tente novamente.");
+            system("pause");
+            perfilFuncionario();
 
     }
 }
@@ -222,7 +298,8 @@ void funcaoAdm()
             break;
 
         default:
-            printf("opcao invalida");
+            printf("opção inválida, tente novamente.");
+            system("pause");
             funcaoAdm();
     }
 }
@@ -263,7 +340,8 @@ void perfilFuncionarioADM()
             break;
 
         default:
-            printf("opcao invalida");
+            printf("opção inválida, tente novamente.");
+            system("pause");
             perfilFuncionarioADM();
     }
 }
@@ -341,6 +419,11 @@ void almoxarifadoADM()
             funcaoAdm();
             break;
 
+        default:
+            printf("opção inválida, tente novamente.");
+            system("pause");
+            almoxarifadoADM();
+
     }
 }
 
@@ -380,7 +463,8 @@ void perfilClienteADM()
             break;
 
         default:
-            printf("opcao invalida");
+            printf("opção inválida, tente novamente.");
+            system("pause");
             perfilClienteADM();
     }
 }
