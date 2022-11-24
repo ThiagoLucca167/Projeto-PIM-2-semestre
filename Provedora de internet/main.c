@@ -4,6 +4,9 @@
 #include "funcaoCliente.h"
 #include <locale.h>
 
+
+// o programa se iniciará aqui e irá direto para outra parte do código FuncoesMenuInicial.c
+
 int main()
 {
     system("color 0f");
@@ -11,7 +14,7 @@ int main()
     telaInicial();
 }
 
-
+// telaInicial imprimirá uma mensagem de boas vindas ao usuário
 
 int telaInicial()
 {

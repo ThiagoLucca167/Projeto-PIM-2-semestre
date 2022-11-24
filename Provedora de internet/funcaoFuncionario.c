@@ -7,6 +7,8 @@
 #include <ctype.h>
 #include <dos.h>
 
+// este arquivo foi criado com a finalidade de fazer funcionalidades em relação com funcionários como, cadastro de funcionario e login
+
     struct Funcionario{
     int cpf;
     int codigo;
@@ -18,7 +20,7 @@
 
     FILE *funFuncionarios;
 
-void funcaoFuncionarios()
+void funcaoFuncionarios()  // tela de login ou cadastro de funcionarios
 {
 
     int funcionarios=0;
@@ -50,7 +52,7 @@ void funcaoFuncionarios()
     }
 }
 
-void loginFuncionario()
+void loginFuncionario()  // funcao para login de usuário como funcionário
 {
     funFuncionarios = fopen("Funcionarios.txt", "rb");
     if(funFuncionarios == NULL){
@@ -98,7 +100,7 @@ void cadastroFuncionario()
 }
 
 
-void adicionarF()
+void adicionarF() // funcao criada para o cadastro de funcionários
 {
     int contador=0, voltar;
 
@@ -135,7 +137,7 @@ void adicionarF()
 
 
 
-void consultarFuncionario()
+void consultarFuncionario()  // função criada para consultar dados de funcionarios
 {
     funFuncionarios = fopen("Funcionarios.txt", "rb");
     if(funFuncionarios == NULL){
@@ -172,7 +174,7 @@ void consultarFuncionario()
     fclose(funFuncionarios);
 }
 
-void alterarFuncionario()
+void alterarFuncionario() // função criada para alterar dados de funcionarios cadastrados
 {
   funFuncionarios = fopen("Funcionarios.txt", "r+b");
     if(funFuncionarios == NULL){
@@ -219,7 +221,7 @@ void alterarFuncionario()
 }
 
 
-void excluirFuncionario()
+void excluirFuncionario() // exclui um cadastro de funcionário
 {
    funFuncionarios = fopen("Funcionarios.txt", "r+b");
     if(funFuncionarios == NULL){

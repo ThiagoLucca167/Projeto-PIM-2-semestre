@@ -8,7 +8,7 @@
 #include <ctype.h>
 #include <dos.h>
 
-
+// esta parte do codigo foi desenvolvida exclusivamente para funções que tem relações com cliente como cadastro, consulta de informações etc.sssssss
 
     struct Cliente
     {
@@ -26,7 +26,7 @@
 
 
 
-void funcaoCliente()
+void funcaoCliente()  // tela para o usuário fazer o login ou cadastrar como cliente
 {
     int opcao =0;
     limparTela();
@@ -58,7 +58,7 @@ void funcaoCliente()
     }
 }
 
-void adicionarCliente()
+void adicionarCliente() // faz o cadastro do usuário como cliente
 {
 
     int voltar;
@@ -90,7 +90,7 @@ void adicionarCliente()
 
 }
 
-void consultarCliente()
+void consultarCliente() // consulta informações sobre clientes cadastrados
 {
     funCliente = fopen("Clientes.txt", "rb");
     if(funCliente == NULL){
@@ -127,7 +127,7 @@ void consultarCliente()
     fclose(funCliente);
 }
 
-void excluirCliente()
+void excluirCliente() // exclui o cadastro de um usuário como cliente
 {
    funCliente = fopen("Clientes.txt", "r+b");
     if(funCliente == NULL){
@@ -179,7 +179,7 @@ void excluirCliente()
 
 
 
-void alterarCliente()
+void alterarCliente() // faz a alteração de dados de um cliente cadastrado
 {
   funCliente = fopen("Clientes.txt", "r+b");
     if(funCliente == NULL){
@@ -223,7 +223,7 @@ void alterarCliente()
 }
 
 
-void login()
+void login() // Validação de login de um cliente usuário
 {
     funCliente = fopen("Clientes.txt", "rb");
     if(funCliente == NULL){
@@ -247,6 +247,7 @@ void login()
         if ((cod == clientes.codigo)  && (clientes.deletar != '*'))
         {
             printf("Bem Vindo..: %-8s \n",clientes.descricaoProduto);
+            gets(clientes.descricaoProduto);
             encontrado = 1;
            telaCliente();
 
@@ -267,7 +268,7 @@ void login()
 
 
 
-void adicionarClientesProdutos()
+void adicionarClientesProdutos() // função para acrescentar informação ao cadastro do cliente
 {
 
     int voltar;
@@ -301,7 +302,7 @@ void adicionarClientesProdutos()
 
 }
 
-void consultarClientesProdutos()
+void consultarClientesProdutos() // consulta os dados cadastrados do cliente
 {
     funCliente = fopen("Clientes.txt", "rb");
     if(funCliente == NULL){
@@ -341,7 +342,7 @@ void consultarClientesProdutos()
     fclose(funCliente);
 }
 
-void excluirClientesProdutos()
+void excluirClientesProdutos() // apaga os dados do cliente cadastrado
 {
    funCliente = fopen("Clientes.txt", "r+b");
     if(funCliente == NULL){
@@ -395,7 +396,7 @@ void excluirClientesProdutos()
 
 
 
-void alterarClientesProdutos()
+void alterarClientesProdutos() // altera os dados do cliente cadastrado
 {
   funCliente = fopen("Clientes.txt", "r+b");
     if(funCliente == NULL){

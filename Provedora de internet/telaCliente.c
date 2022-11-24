@@ -8,7 +8,7 @@
 
 
 
-void telaCliente()
+void telaCliente() // tela inicial do usuário como cliente após o login
 {
     int logadoCliente;
 
@@ -44,7 +44,7 @@ void telaCliente()
     }
 
 }
-void consultaPerfil()
+void consultaPerfil() // tela de perfil do cliente
 {
     int opcao = 0;
      printf("Consulta de perfil selecionado. \n\n1. Incluir Dados\n2. Consultar Perfil\n3. Alterar Dados\n4. Excluir perfil.\n0. Voltar\n");
@@ -79,10 +79,10 @@ void consultaPerfil()
      }
 }
 
-void consultarProdutosCli()
+void consultarProdutosCli() // tela para o cliente pedir ou consultar produtos
 {
     int opcao = 0;
-    printf("Consulta de Produtos selecionado. \n\n1. Consultar Produtos\n2. Solicitar Produtos\n3. Cancelar Produtos.\n0. Voltar\n");
+    printf("Consulta de Produtos selecionado. \n\n1. Consultar Produtos\n2. Solicitar Produtos\n3. Cancelar Produtos.\n4. Consultar produtos solicitados\n0. Voltar\n");
     scanf("%d", &opcao);
 
      switch(opcao)
@@ -97,6 +97,10 @@ void consultarProdutosCli()
         limparTela();
         cancelarProduto();
         break;
+     case 4:
+        limparTela();
+        consultarProdutoSolicitado();
+        break;
      case 0:
          limparTela();
          telaCliente();
@@ -108,7 +112,7 @@ void consultarProdutosCli()
      }
 }
 
-void consultarServicoCli()
+void consultarServicoCli() // tela para o cliente pedir ou consultar serviços
 {
     int opcao = 0;
     printf("consulta de Serviços selecionado. \n\n1.Solicitar Serviços\n2.Consultar Serviços\n3.Cancelar serviço solicitado.\n4.Voltar.");

@@ -3,7 +3,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-void FuncoesMenuInicial()
+
+// O arquivo FuncoesMenuInicial foi desenvolvido como tela inicial para o usuário ter acesso a várias telas
+
+
+
+void FuncoesMenuInicial() // primeira tela de acesso do usuário
 {
     int validacoes;
     printf("\nMENU INICIAL*\n\nSelecione o que fazer...: \n\n");
@@ -19,13 +24,13 @@ void FuncoesMenuInicial()
     switch(validacoes)
     {
     case 1:
-        funcaoCliente();
+        funcaoCliente();  // opção para o usuário acessar como cliente (funcaoCliente.c)
         break;
     case 2:
-        funcaoFuncionarios();
+        funcaoFuncionarios(); // opção para acessar como funcionario (funcaoFuncionario.c)
         break;
     case 3:
-        funcaoAdm();
+        funcaoAdm(); // opção para o usuário acessar como administrador(telaCliente.c)
         break;
     case 4:
         sobreNos();
@@ -54,7 +59,7 @@ void FuncoesMenuInicial()
 
 
 
-void participantes()
+void participantes()  // integrantes do projeto
 {
     limparTela();
     printf("\n\n");
@@ -73,7 +78,7 @@ void participantes()
 
 
 
-void configuracaoTela()
+void configuracaoTela() //configuração da formatação de tela
 {
     int corTela;
     printf("1.Padrão\n");
@@ -110,13 +115,13 @@ void configuracaoTela()
      FuncoesMenuInicial();
 }
 
-void limparTela()
+void limparTela()  //função básica para pausar e limpar a tela
 {
     system("pause>nul");
     system("cls || clean");
 }
 
-void sobreNos()
+void sobreNos() // informações sobre a empresa
 {
     printf("sobre nos\n\n");
     limparTela();

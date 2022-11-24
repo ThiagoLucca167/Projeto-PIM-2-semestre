@@ -7,6 +7,10 @@
 #include <conio.h>
 #include <ctype.h>
 #include <dos.h>
+
+
+// este arquivo foi criado com a finalidade de realizar funções em relação ao estoque de produtos, pedidos e cadastramento do produtos
+
     struct Produto{
     int cpf;
     int codigo;
@@ -21,7 +25,7 @@
     FILE *funProduto;
 
 
-void adicionarProduto()
+void adicionarProduto() // cadastra um produto no sistema da empresa
 {
 
     int voltar;
@@ -52,7 +56,7 @@ void adicionarProduto()
     fclose(funProduto);
 }
 
-void consultarProduto()
+void consultarProduto() // tela de pesquisa para pesquisar produtos cadastrado no sistema
 {
     funProduto = fopen("Produtos.txt", "rb");
     if(funProduto == NULL){
@@ -89,7 +93,7 @@ void consultarProduto()
     fclose(funProduto);
 }
 
-void excluirProduto()
+void excluirProduto() // tira os dados de um produto cadastrado no sistema
 {
    funProduto = fopen("Produtos.txt", "r+b");
     if(funProduto == NULL){
@@ -141,7 +145,7 @@ void excluirProduto()
 
 
 
-void alterarProduto()
+void alterarProduto()  // altera os dados de um produto cadastrado no sistema
 {
   funProduto = fopen("Produtos.txt", "r+b");
     if(funProduto == NULL){
@@ -190,7 +194,7 @@ void alterarProduto()
 
 
 
-void consultarProdutoClientes()
+void consultarProdutoClientes() // lista todos os produtos cadastrado no sistema para o cliente
 {
      funProduto = fopen("Produtos.txt", "rb");
     if(funProduto == NULL){
@@ -258,7 +262,7 @@ void consultarProdutoClientes()
 
 
 
-void adicionarProdutoSolicitados()
+void adicionarProdutoSolicitados()  // função para que o cliente solicite um produto
 {
     funProduto = fopen("Produtos.txt", "rb");
     if(funProduto == NULL){
@@ -285,6 +289,9 @@ void adicionarProdutoSolicitados()
         getch();
         exit(1);
     }
+            printf("Confirme seu nome de usuário: ");
+            fflush(stdin);
+            gets(produtos.descricaoProduto);
             printf("Confirme seu CPF..:\n");
             scanf("%d", &produtos.cpf);
             printf("Confirme o codigo do produto..:\n");
@@ -310,7 +317,7 @@ void adicionarProdutoSolicitados()
 
 
 
-void cancelarProduto()
+void cancelarProduto() // cancela um pedido pendente de produto que o cliente requisitou
 {
    funProduto = fopen("Clientes Produtos solicitados.txt", "r+b");
     if(funProduto == NULL){
@@ -354,6 +361,43 @@ void cancelarProduto()
             }
         }
     }
+    if (!encontrado)
+    {
+        printf ("\nCodigo nao cadastrado!!\n");
+        system("pause>nul");
+        consultarProdutosCli();
+    }
+    fclose(funProduto);
+}
+
+void consultarProdutoSolicitado() // abre uma lista de pedidos pendentes que o cliente requisitou
+{
+   funProduto = fopen("Clientes Produtos solicitados.txt", "r");
+    if(funProduto == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Produto produtos;
+
+    int cod, encontrado = 0;
+    printf ("\nDigite o cpf para verificar os produtos solicitados..: \n");
+    scanf ("%d", &cod);
+
+    while (fread (&produtos, sizeof(produtos), 1, funProduto))
+    {
+        if (cod == produtos.cpf)
+        {
+            printf("\n\n\tProdutos solicitados\n\n");
+            printf("Codigo %d \nDescricao: %-8s \nValor R$ %4.2f\n\n",produtos.codigo, produtos.descricaoProduto, produtos.valorProduto);
+            encontrado = 1;
+                system("pause>nul");
+                system("cls || clean");
+                consultarProdutosCli();
+            }
+        }
+
     if (!encontrado)
     {
         printf ("\nCodigo nao cadastrado!!\n");

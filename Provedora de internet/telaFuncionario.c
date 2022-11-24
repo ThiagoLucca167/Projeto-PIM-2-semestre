@@ -9,7 +9,7 @@
 
 int opcao;
 
-void telaFuncionario()
+void telaFuncionario() // tela inicial de usuário como funcionario após de login
 {
     system("cls || clean");
     opcao = 0;
@@ -43,7 +43,7 @@ void telaFuncionario()
 
 
 
-void setores()
+void setores() // tela onde o funcionario irá gerenciar o estoque, relatorios, cadastros
 {
     system("cls || clean");
     opcao = 0;
@@ -80,7 +80,7 @@ void setores()
     }
 }
 
-void operacao()
+void operacao() // tela de gerenciamento de produtos e serviços
 {
     system("cls || clean");
     opcao = 0;
@@ -91,6 +91,7 @@ void operacao()
     printf("2. Consultar Produtos\n");
     printf("3. Alterar Serviços\n");
     printf("4. Consultar Serviços\n");
+    printf("5. Pedidos de Produtos\n");
     printf("0. Voltar\n");
     scanf("%i", &opcao);
 
@@ -118,6 +119,12 @@ void operacao()
             consultarServico();
             break;
 
+        case 5:
+            system("cls || clean");
+            logoTipo();
+            produtosRequisitado();
+            break;
+
         case 0:
             setores();
             break;
@@ -129,7 +136,7 @@ void operacao()
     setores();
 }
 
-void recepcao()
+void recepcao() // tela de gerenciamento de clientes e produtos
 {
     system("cls || clean");
     opcao = 0;
@@ -180,7 +187,7 @@ void recepcao()
     setores();
 }
 
-void almoxarifado()
+void almoxarifado() // tela para cadastro de produtos e serviços
 {
     system("cls || clean");
     opcao = 0;
@@ -248,7 +255,7 @@ void almoxarifado()
     }
 }
 
-void perfilFuncionario()
+void perfilFuncionario() // tela para consulta de perfil de funcionários
 {
     system("cls || clean");
     opcao = 0;
@@ -277,7 +284,7 @@ void perfilFuncionario()
     }
 }
 
-void funcaoAdm()
+void funcaoAdm() // tela exclusiva de administrador onde ele tem acesso total a todas as funções
 {
     system("cls || clean");
     opcao = 0;
@@ -315,7 +322,7 @@ void funcaoAdm()
     }
 }
 
-void perfilFuncionarioADM()
+void perfilFuncionarioADM() // tela de administrador onde tem acesso total ao CRUD de funcionários
 {
     system("cls || clean");
     opcao = 0;
@@ -357,7 +364,7 @@ void perfilFuncionarioADM()
     }
 }
 
-void almoxarifadoADM()
+void almoxarifadoADM() // tela de administrador onde tem acesso total ao CRUD de produtos e serviços
 {
     system("cls || clean");
     opcao = 0;
@@ -438,7 +445,7 @@ void almoxarifadoADM()
     }
 }
 
-void perfilClienteADM()
+void perfilClienteADM() // tela de administrador onde tem acesso total ao CRUD de clientes
 {
     system("cls || clean");
     opcao = 0;
@@ -480,7 +487,7 @@ void perfilClienteADM()
     }
 }
 
-void logoTipo()
+void logoTipo() // logotipo da empresa que estará em várias telas do sistema
 {
     printf("\n\n");
     printf("\t\t  ____  _____   ____     _______ _______ ______ _____ _    _ \n");

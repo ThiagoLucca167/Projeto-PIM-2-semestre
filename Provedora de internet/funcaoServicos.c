@@ -7,6 +7,11 @@
 #include <conio.h>
 #include <ctype.h>
 #include <dos.h>
+
+
+// este arquivo foi criado com a finalidade de realizar funções em relação ao serviços que a empresa presta ao cliente e cadastramento do mesmo
+
+
     struct Servico{
     int cpf;
     int codigo;
@@ -21,7 +26,7 @@
     FILE *funServico;
 
 
-void adicionarServico()
+void adicionarServico() // cadastra um tipo de serviço e suas informaçoes
 {
 
     int voltar;
@@ -52,7 +57,7 @@ void adicionarServico()
     fclose(funServico);
 }
 
-void consultarServico()
+void consultarServico() // consulta um tipo de serviço cadastrado no sistema
 {
     funServico = fopen("Serviços.txt", "rb");
     if(funServico == NULL){
@@ -88,7 +93,7 @@ void consultarServico()
     fclose(funServico);
 }
 
-void excluirServico()
+void excluirServico() // apaga dados de um serviço do sistema
 {
    funServico = fopen("Serviços.txt", "r+b");
     if(funServico == NULL){
@@ -140,7 +145,7 @@ void excluirServico()
 
 
 
-void alterarServico()
+void alterarServico() // altera dados de um serviço cadastrado no sistema
 {
   funServico = fopen("Serviços.txt", "r+b");
     if(funServico == NULL){
@@ -183,7 +188,7 @@ void alterarServico()
 }
 
 
-void consultarServicoClientes()
+void consultarServicoClientes() // abre uma lista de serviços disponíveis para o cliente
 {
      funServico = fopen("Serviços.txt", "rb");
     if(funServico == NULL){
@@ -250,7 +255,7 @@ void consultarServicoClientes()
 
 
 
-void adicionarServicoSolicitados()
+void adicionarServicoSolicitados() // função para o cliente requisitar um pedido de serviço no sistema
 {
     funServico = fopen("Serviços.txt", "rb");
     if(funServico == NULL){
@@ -301,7 +306,7 @@ void adicionarServicoSolicitados()
 
 
 
-void cancelarServico()
+void cancelarServico()  // cancela um pedido de serviço pendente feito pelo cliente
 {
    funServico = fopen("Clientes Serviços solicitados.txt", "r+b");
     if(funServico == NULL){

@@ -12,3 +12,6 @@ void alterarProduto();
 void consultarProdutosCli();
 
 #endif // FUNCAOCLIENTE_H_INCLUDED
+
+
+// este arquivo foi criado com a finalidade de conectar todos os arquivos serparados no projeto
