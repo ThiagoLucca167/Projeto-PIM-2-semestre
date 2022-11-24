@@ -123,7 +123,26 @@ void limparTela()  //função básica para pausar e limpar a tela
 
 void sobreNos() // informações sobre a empresa
 {
-    printf("sobre nos\n\n");
+    system("cls || clean");
+    logoTipo();
+
+    printf("\n\n");
+    printf("\t*****************************************************************************************************\n");
+    printf("\t*                                                                                                   *\n");
+    printf("\t*   O nosso objetivo é auxiliar e gerenciar o provedor de internet de pequenas e médias empresas.   *\n");
+    printf("\t*   Nós temos em mente que muitas empresas de tecnologia surgiram com essa grande expansão,e hoje   *\n");
+    printf("\t*   visamos a questão de entregar um produto de qualidade, confiabilidade e com total               *\n");
+    printf("\t*   profissionalismo que a empresa Broatech utiliza.                                                *\n");
+    printf("\t*   Hoje a Broatech, quer desmistificar essa questão e padronização dos serviços de                 *\n");
+    printf("\t*   hospedagem/provedores de internet, querendo sempre entregar um serviços de qualidade,           *\n");
+    printf("\t*   confiabilidade e segurança aos seus clientes, e visando também o suporte, pois muitas           *\n");
+    printf("\t*   CIA hoje em dia só querer criar billing e não relacionamento com o cliente.                     *\n");
+    printf("\t*   Optamos por um serviço que seja mais atrativo ao cliente pois não é simples e fácil             *\n");
+    printf("\t*   escolher um provedor de web e seguir em frente, é bom sempre pesquisar antes de fechar          *\n");
+    printf("\t*   a compra de um serviço, seja ele de serviços  fornecidos ou de produtos para contratação.       *\n");
+    printf("\t*                                                                                                   *\n");
+    printf("\t*****************************************************************************************************\n\n");
+
     limparTela();
     FuncoesMenuInicial();
 }
