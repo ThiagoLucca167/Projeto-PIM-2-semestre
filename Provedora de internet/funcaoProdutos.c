@@ -406,3 +406,108 @@ void consultarProdutoSolicitado() // abre uma lista de pedidos pendentes que o c
     }
     fclose(funProduto);
 }
+
+// funções abaixo criadas para CRUD DOS FUNCIONARIOS
+
+void consultarProdutoFuncionarioRecepcao() // lista todos os produtos cadastrado no sistema para o cliente
+{
+     funProduto = fopen("Produtos.txt", "rb");
+    if(funProduto == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Produto produtos;
+
+    int encontrado = 0;
+    char i;
+
+    printf("Ver produtos ? S ou N");
+    scanf("%s",&i);
+
+    if(i =='S' || i=='s')
+    {
+        int encontrado = 0;
+        printf ("\nEsses são os produtos que estão disponiveis..: \n");
+
+    while (fread(&produtos, sizeof(produtos), 1, funProduto))
+    {
+           if(encontrado==0)
+           {
+            printf("Procurando ....    \n");
+            printf("Produto..: %d \nDescricao..: %-8s \nValor..: R$ %4.2f\n\n", produtos.codigo,produtos.descricaoProduto,produtos.valorProduto);
+            system("pause>nul");
+            recepcao();
+           }
+    }
+
+    if (!encontrado)
+    {
+        printf("Produtos nao encontrados !!!");
+        system("pause");
+        system("cls || clean");
+        recepcao();
+    }
+    fclose(funProduto);
+    }
+    else if(i=='n' || i=='N')
+    {
+        printf("\nSaindo...\n");
+        system("pause");
+        system("cls || clean");
+        recepcao();
+    }
+    else
+    {
+        printf("Opção invalida !!!");
+        limparTela();
+        recepcao();
+    }
+}
+
+
+void alterarProdutoFuncionarioRecepcao()  // altera os dados de um produto cadastrado no sistema
+{
+  funProduto = fopen("Produtos.txt", "r+b");
+    if(funProduto == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Produto produtos;
+    int cod, encontrado = 0;
+    printf ("\nDigite o codigo que deseja alterar: \n");
+    scanf ("%d", &cod);
+
+    while (fread (&produtos, sizeof(produtos), 1, funProduto))
+    {
+        if (cod == produtos.codigo)
+        {
+            printf("Cod %d --- Descricao: %-8s --- Valor R$ %4.2f\n\n",produtos.codigo, produtos.descricaoProduto, produtos.valorProduto);
+            encontrado = 1;
+
+            fseek(funProduto,sizeof(struct Produto)*-1, SEEK_CUR);
+            printf("\nDigite a nova descricao: \n");
+            fflush(stdin);
+            gets(produtos.descricaoProduto);
+            printf("\nDigite o novo preco....: \n");
+            scanf("%f", &produtos.valorProduto);
+
+            fwrite(&produtos, sizeof(produtos), 1, funProduto);
+            fseek(funProduto, sizeof(produtos)* 0, SEEK_END);
+
+            printf("\n Dados do produto alterados com sucesso!");
+            system("pause>nul");
+            recepcao();
+        }
+    }
+    if (!encontrado)
+    {
+        printf("\nCodigo nao cadastrado!!\n");
+        recepcao();
+    }
+    fclose(funProduto);
+}
+

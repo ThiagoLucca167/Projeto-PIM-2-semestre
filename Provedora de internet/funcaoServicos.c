@@ -300,12 +300,6 @@ void adicionarServicoSolicitados() // função para o cliente requisitar um pedido
     consultarServicoCli();
 }
 
-
-
-
-
-
-
 void cancelarServico()  // cancela um pedido de serviço pendente feito pelo cliente
 {
    funServico = fopen("Clientes Serviços solicitados.txt", "r+b");
@@ -355,6 +349,355 @@ void cancelarServico()  // cancela um pedido de serviço pendente feito pelo clie
         printf ("\nCodigo nao cadastrado!!\n");
         system("pause>nul");
         consultarServicoCli();
+    }
+    fclose(funServico);
+}
+
+
+
+
+
+
+
+
+
+
+void adicionarServicoAlmoxarifado() // cadastra um tipo de serviço e suas informaçoes
+{
+
+    int voltar;
+
+    funServico = fopen("Serviços.txt", "ab");
+    if(funServico == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+            struct Servico servicos;
+
+            printf("Digite o codigo do Serviço: \n");
+            scanf("%d", &servicos.codigo);
+            printf("Digite a descricao do Serviço: \n");
+            fflush(stdin);
+            gets(servicos.descricaoServico);
+            printf("Digite o valor do Serviço: \n");
+            scanf("%f", &servicos.valorServico);
+
+    voltar = fwrite (&servicos, sizeof(servicos) ,1,funServico);
+
+    if(voltar == 1)
+        {
+            printf("\nINFO. GRAVADAS COM SUCESSO!\n");
+            system("pause");
+            almoxarifado();
+        }
+    fclose(funServico);
+}
+
+void consultarServicoAlmoxarifado() // consulta um tipo de serviço cadastrado no sistema
+{
+    funServico = fopen("Serviços.txt", "rb");
+    if(funServico == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Servico servicos;
+
+    int encontrado = 0,cod;
+
+    printf ("\nDigite o Codigo do Servico que procura: \n");
+    scanf ("%d", &cod);
+
+    while (fread(&servicos, sizeof(servicos), 1, funServico))
+    {
+
+    printf("Buscando ....    \n");
+
+        if ((cod == servicos.codigo)  && (servicos.deletar != '*'))
+        {
+            printf("Codigo..: %d \nDescricao..: %-8s \nValor..: R$ %4.2f\n", servicos.codigo,servicos.descricaoServico,servicos.valorServico);
+            encontrado = 1;
+            system("pause>nul");
+            almoxarifado();
+        }
+    }
+    if (!encontrado)
+    {
+        printf("\nCodigo nao cadastrado!!\n");
+        system("pause");
+        almoxarifado();
+    }
+    fclose(funServico);
+}
+
+void excluirServicoAlmoxarifado() // apaga dados de um serviço do sistema
+{
+   funServico = fopen("Serviços.txt", "r+b");
+    if(funServico == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Servico servicos;
+
+    int cod, encontrado = 0;
+    char certeza;
+    printf ("\nDigite o codigo que deseja EXCLUIR: \n");
+    scanf ("%d", &cod);
+
+    while (fread (&servicos, sizeof(servicos), 1, funServico))
+    {
+        if (cod == servicos.codigo)
+        {
+            printf("Cod %d --- Descricao: %-8s --- Valor R$ %4.2f\n\n",servicos.codigo, servicos.descricaoServico, servicos.valorServico);
+            encontrado = 1;
+
+            printf("\nTem certeza que quer excluir este Serviço? s/n \n");
+            fflush(stdin);
+            scanf("%c", &certeza);
+            if (certeza == 's')
+            {
+                servicos.deletar = '*';
+                fseek(funServico,sizeof(struct Servico)*-1, SEEK_CUR);
+                fwrite(&servicos, sizeof(servicos), 1, funServico);
+                fseek(funServico, sizeof(servicos)* 0, SEEK_END);
+                printf("\nServiço excluido com Sucesso! \n");
+                system("pause>nul");
+                almoxarifado();
+            }
+            else if (certeza == 'n')
+            {
+                system("cls || clear");
+                almoxarifado();
+            }
+        }
+    }
+    if (!encontrado)
+    {
+        printf ("\nCodigo nao cadastrado!!\n");
+        system("pause>nul");
+        almoxarifado();
+    }
+    fclose(funServico);
+}
+
+
+
+
+void alterarServicoAlmoxarifado() // altera dados de um serviço cadastrado no sistema
+{
+  funServico = fopen("Serviços.txt", "r+b");
+    if(funServico == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Servico servicos;
+    int cod, encontrado = 0;
+    printf ("\nDigite o codigo que deseja alterar: \n");
+    scanf ("%d", &cod);
+
+    while (fread (&servicos, sizeof(servicos), 1, funServico))
+    {
+        if (cod == servicos.codigo)
+        {
+            printf("Cod %d --- Descricao: %-8s --- Valor R$ %4.2f\n\n",servicos.codigo, servicos.descricaoServico, servicos.valorServico);
+            encontrado = 1;
+
+            fseek(funServico,sizeof(struct Servico)*-1, SEEK_CUR);
+            printf("\nDigite a nova descricao: \n");
+            fflush(stdin);
+            gets(servicos.descricaoServico);
+            printf("\nDigite o novo preco....: \n");
+            scanf("%f", &servicos.valorServico);
+
+            fwrite(&servicos, sizeof(servicos), 1, funServico);
+            fseek(funServico, sizeof(servicos)* 0, SEEK_END);
+
+            printf("\n Dados do Serviço alterados com sucesso!");
+            system("pause>nul");
+            almoxarifado();
+        }
+    }
+    if (!encontrado)
+    {
+        printf("\nCodigo nao cadastrado!!\n");
+        almoxarifado();
+    }
+    fclose(funServico);
+}
+
+
+
+void adicionarServicoAMD() // cadastra um tipo de serviço e suas informaçoes
+{
+
+    int voltar;
+
+    funServico = fopen("Serviços.txt", "ab");
+    if(funServico == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+            struct Servico servicos;
+
+            printf("Digite o codigo do Serviço: \n");
+            scanf("%d", &servicos.codigo);
+            printf("Digite a descricao do Serviço: \n");
+            fflush(stdin);
+            gets(servicos.descricaoServico);
+            printf("Digite o valor do Serviço: \n");
+            scanf("%f", &servicos.valorServico);
+
+    voltar = fwrite (&servicos, sizeof(servicos) ,1,funServico);
+
+    if(voltar == 1)
+        {
+            printf("\nINFO. GRAVADAS COM SUCESSO!\n");
+            system("pause");
+            almoxarifadoADM();
+        }
+    fclose(funServico);
+}
+
+void consultarServicoADM() // consulta um tipo de serviço cadastrado no sistema
+{
+    funServico = fopen("Serviços.txt", "rb");
+    if(funServico == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Servico servicos;
+
+    int encontrado = 0,cod;
+
+    printf ("\nDigite o Codigo do Servico que procura: \n");
+    scanf ("%d", &cod);
+
+    while (fread(&servicos, sizeof(servicos), 1, funServico))
+    {
+
+    printf("Buscando ....    \n");
+
+        if ((cod == servicos.codigo)  && (servicos.deletar != '*'))
+        {
+            printf("Codigo..: %d \nDescricao..: %-8s \nValor..: R$ %4.2f\n", servicos.codigo,servicos.descricaoServico,servicos.valorServico);
+            encontrado = 1;
+            system("pause>nul");
+            almoxarifadoADM();
+        }
+    }
+    if (!encontrado)
+    {
+        printf("\nCodigo nao cadastrado!!\n");
+        system("pause");
+        almoxarifadoADM();
+    }
+    fclose(funServico);
+}
+
+void excluirServicoADM() // apaga dados de um serviço do sistema
+{
+   funServico = fopen("Serviços.txt", "r+b");
+    if(funServico == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Servico servicos;
+
+    int cod, encontrado = 0;
+    char certeza;
+    printf ("\nDigite o codigo que deseja EXCLUIR: \n");
+    scanf ("%d", &cod);
+
+    while (fread (&servicos, sizeof(servicos), 1, funServico))
+    {
+        if (cod == servicos.codigo)
+        {
+            printf("Cod %d --- Descricao: %-8s --- Valor R$ %4.2f\n\n",servicos.codigo, servicos.descricaoServico, servicos.valorServico);
+            encontrado = 1;
+
+            printf("\nTem certeza que quer excluir este Serviço? s/n \n");
+            fflush(stdin);
+            scanf("%c", &certeza);
+            if (certeza == 's')
+            {
+                servicos.deletar = '*';
+                fseek(funServico,sizeof(struct Servico)*-1, SEEK_CUR);
+                fwrite(&servicos, sizeof(servicos), 1, funServico);
+                fseek(funServico, sizeof(servicos)* 0, SEEK_END);
+                printf("\nServiço excluido com Sucesso! \n");
+                system("pause>nul");
+                almoxarifadoADM();
+            }
+            else if (certeza == 'n')
+            {
+                system("cls || clear");
+                almoxarifadoADM();
+            }
+        }
+    }
+    if (!encontrado)
+    {
+        printf ("\nCodigo nao cadastrado!!\n");
+        system("pause>nul");
+        almoxarifadoADM();
+    }
+    fclose(funServico);
+}
+
+
+
+
+void alterarServicoADM() // altera dados de um serviço cadastrado no sistema
+{
+  funServico = fopen("Serviços.txt", "r+b");
+    if(funServico == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Servico servicos;
+    int cod, encontrado = 0;
+    printf ("\nDigite o codigo que deseja alterar: \n");
+    scanf ("%d", &cod);
+
+    while (fread (&servicos, sizeof(servicos), 1, funServico))
+    {
+        if (cod == servicos.codigo)
+        {
+            printf("Cod %d --- Descricao: %-8s --- Valor R$ %4.2f\n\n",servicos.codigo, servicos.descricaoServico, servicos.valorServico);
+            encontrado = 1;
+
+            fseek(funServico,sizeof(struct Servico)*-1, SEEK_CUR);
+            printf("\nDigite a nova descricao: \n");
+            fflush(stdin);
+            gets(servicos.descricaoServico);
+            printf("\nDigite o novo preco....: \n");
+            scanf("%f", &servicos.valorServico);
+
+            fwrite(&servicos, sizeof(servicos), 1, funServico);
+            fseek(funServico, sizeof(servicos)* 0, SEEK_END);
+
+            printf("\n Dados do Serviço alterados com sucesso!");
+            system("pause>nul");
+            almoxarifadoADM();
+        }
+    }
+    if (!encontrado)
+    {
+        printf("\nCodigo nao cadastrado!!\n");
+        almoxarifadoADM();
     }
     fclose(funServico);
 }

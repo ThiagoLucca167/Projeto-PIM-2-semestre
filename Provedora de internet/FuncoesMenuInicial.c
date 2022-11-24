@@ -30,7 +30,7 @@ void FuncoesMenuInicial() // primeira tela de acesso do usuário
         funcaoFuncionarios(); // opção para acessar como funcionario (funcaoFuncionario.c)
         break;
     case 3:
-        funcaoAdm(); // opção para o usuário acessar como administrador(telaCliente.c)
+        loginADM(); // opção para o usuário acessar como administrador(telaCliente.c)
         break;
     case 4:
         sobreNos();

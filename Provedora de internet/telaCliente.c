@@ -121,18 +121,18 @@ void consultarServicoCli() // tela para o cliente pedir ou consultar serviços
     switch(opcao)
     {
         case 1:
-            limparTela();
             adicionarServicoSolicitados();
+            limparTela();
             break;
 
         case 2:
-            consultarServicoClientes();
             limparTela();
+            consultarServicoClientes();
             break;
 
         case 3:
-            cancelarServico();
             limparTela();
+            cancelarServico();
             break;
 
         case 4:

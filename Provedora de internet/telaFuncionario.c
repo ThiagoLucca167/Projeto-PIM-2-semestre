@@ -11,13 +11,13 @@ int opcao;
 
 void telaFuncionario() // tela inicial de usuário como funcionario após de login
 {
-    system("cls || clean");
+    limparTela();
     opcao = 0;
 
     logoTipo();
     printf("\t1. Setores.\n");
     printf("\t2. Dados de perfil.\n");
-    printf("\t3. Logout.\n\n");
+    printf("\t0. Sair para menu inicial.\n\n");
     scanf("%i", &opcao);
 
     switch(opcao)
@@ -30,7 +30,7 @@ void telaFuncionario() // tela inicial de usuário como funcionario após de login
             perfilFuncionario();
             break;
 
-        case 3:
+        case 0:
             telaInicial();
             break;
 
@@ -52,7 +52,7 @@ void setores() // tela onde o funcionario irá gerenciar o estoque, relatorios, c
     printf("\t1. operação.\n");
     printf("\t2. Recepção.\n");
     printf("\t3. almoxarifado.\n");
-    printf("\t4. Voltar.\n\n");
+    printf("\t0. Voltar.\n\n");
     scanf("%i", &opcao);
 
     switch(opcao)
@@ -69,7 +69,7 @@ void setores() // tela onde o funcionario irá gerenciar o estoque, relatorios, c
             almoxarifado();
             break;
 
-        case 4:
+        case 0:
             telaFuncionario();
             break;
 
@@ -155,26 +155,26 @@ void recepcao() // tela de gerenciamento de clientes e produtos
         case 1:
             system("cls || clean");
             logoTipo();
-            consultarCliente();
+            consultarClienteFuncionarioRecepcao();
             break;
         case 2:
             system("cls || clean");
             logoTipo();
-            alterarCliente();
+            alterarClienteFuncionariosRecepcao();
             break;
         case 3:
             system("cls || clean");
-            excluirCliente();
+            excluirClienteFuncionarioRecepcao();
             break;
         case 4:
             system("cls || clean");
             logoTipo();
-            consultarProduto();
+            consultarProdutoFuncionarioRecepcao();
             break;
         case 5:
             system("cls || clean");
             logoTipo();
-            alterarProduto();
+            alterarProdutoFuncionarioRecepcao();
             break;
         case 0:
             setores();
@@ -201,6 +201,7 @@ void almoxarifado() // tela para cadastro de produtos e serviços
     printf("4. Adicionar Serviços\n");
     printf("5. Consultar Serviços\n");
     printf("6. Alterar Serviços\n");
+    printf("7. Excluir Serviços\n");
     printf("0. Voltar\n");
     scanf("%i", &opcao);
 
@@ -227,19 +228,22 @@ void almoxarifado() // tela para cadastro de produtos e serviços
         case 4:
             system("cls || clean");
             logoTipo();
-            adicionarServico();
+            adicionarServicoAlmoxarifado();
             break;
 
         case 5:
             system("cls || clean");
             logoTipo();
-            consultarServico();
+            consultarServicoAlmoxarifado();
             break;
 
         case 6:
             system("cls || clean");
             logoTipo();
-            alterarServico();
+            alterarServicoAlmoxarifado();
+            break;
+        case 7:
+            excluirServicoAlmoxarifado();
             break;
 
         case 0:
@@ -262,7 +266,7 @@ void perfilFuncionario() // tela para consulta de perfil de funcionários
 
     logoTipo();
     printf("1.consulta de dados\n");
-    printf("2.voltar\n");
+    printf("0.voltar\n");
     scanf("%i", &opcao);
 
     switch(opcao)
@@ -272,7 +276,7 @@ void perfilFuncionario() // tela para consulta de perfil de funcionários
             consultarFuncionario();
             break;
 
-        case 2:
+        case 0:
             telaFuncionario();
             break;
 
@@ -293,7 +297,7 @@ void funcaoAdm() // tela exclusiva de administrador onde ele tem acesso total a 
     printf("1.dados de funcionarios\n");
     printf("2.almoxarifado\n");
     printf("3.dados de clientes\n");
-    printf("4.Voltar\n");
+    printf("0.Voltar\n");
     scanf("%i", &opcao);
 
     switch(opcao)
@@ -310,7 +314,7 @@ void funcaoAdm() // tela exclusiva de administrador onde ele tem acesso total a 
             perfilClienteADM();
             break;
 
-        case 4:
+        case 0:
             system("cls || clean");
             FuncoesMenuInicial();
             break;
@@ -332,7 +336,7 @@ void perfilFuncionarioADM() // tela de administrador onde tem acesso total ao CR
     printf("2. consultar funcionario\n");
     printf("3. alterar funcionario\n");
     printf("4. excluir funcionario\n");
-    printf("5. voltar\n\n");
+    printf("0. voltar\n\n");
     scanf("%i", &opcao);
 
     switch(opcao)
@@ -342,7 +346,7 @@ void perfilFuncionarioADM() // tela de administrador onde tem acesso total ao CR
             break;
 
         case 2:
-            consultarFuncionario();
+            consultarFuncionarioADM();
             break;
 
         case 3:
@@ -353,7 +357,7 @@ void perfilFuncionarioADM() // tela de administrador onde tem acesso total ao CR
             excluirFuncionario();
             break;
 
-        case 5:
+        case 0:
             funcaoAdm();
             break;
 
@@ -388,49 +392,49 @@ void almoxarifadoADM() // tela de administrador onde tem acesso total ao CRUD de
         case 1:
             system("cls || clean");
             logoTipo();
-            adicionarProduto();
+            adicionarClientesProdutos();
             break;
 
         case 2:
             system("cls || clean");
             logoTipo();
-            consultarProduto();
+            consultarClientesProdutos();
             break;
 
         case 3:
             system("cls || clean");
             logoTipo();
-            alterarProduto();
+            alterarClientesProdutos();
             break;
 
         case 4:
             system("cls || clean");
             logoTipo();
-            excluirProduto();
+            excluirClientesProdutos();
             break;
 
         case 5:
             system("cls || clean");
             logoTipo();
-            adicionarServico();
+            adicionarServicoAMD();
             break;
 
         case 6:
             system("cls || clean");
             logoTipo();
-            consultarServico();
+            consultarServicoADM();
             break;
 
         case 7:
             system("cls || clean");
             logoTipo();
-            alterarServico();
+            alterarServicoADM();
             break;
 
         case 8:
             system("cls || clean");
             logoTipo();
-            excluirServico();
+            excluirServicoADM();
             break;
 
         case 0:
@@ -455,34 +459,34 @@ void perfilClienteADM() // tela de administrador onde tem acesso total ao CRUD d
     printf("2. Alterar Cliente\n");
     printf("3. Consultar Cliente\n");
     printf("4. Excluir Cliente\n");
-    printf("5. Voltar\n");
+    printf("0. Voltar\n");
     scanf("%i", &opcao);
 
     switch(opcao)
     {
         case 1:
-            adicionarCliente();
+            adicionarClienteADM();
             break;
 
         case 2:
-            alterarCliente();
+            alterarClienteADM();
             break;
 
         case 3:
-            consultarCliente();
+            consultarClienteADM();
             break;
 
         case 4:
-            excluirCliente();
+            excluirClienteADM();
             break;
 
-        case 5:
+        case 0:
             funcaoAdm();
             break;
 
         default:
             printf("opção inválida, tente novamente.");
-            system("pause");
+            limparTela();
             perfilClienteADM();
     }
 }

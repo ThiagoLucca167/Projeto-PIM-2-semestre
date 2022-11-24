@@ -85,7 +85,8 @@ void adicionarCliente() // faz o cadastro do usuário como cliente
         {
             printf("\nINFO. GRAVADAS COM SUCESSO!\n");
             fclose(funCliente);
-            system("pause");
+            limparTela();
+            funcaoCliente();
         }
 
 }
@@ -115,14 +116,15 @@ void consultarCliente() // consulta informações sobre clientes cadastrados
         {
             printf("Usuario..: %d \nNome..: %-8s \nSalario..: R$ %4.2f\n", clientes.codigo,clientes.descricaoProduto,clientes.valorProduto);
             encontrado = 1;
-            system("pause>nul");
-
+            limparTela();
+            funcaoCliente();
         }
     }
     if (!encontrado)
     {
         printf("\nPerfil nao cadastrado!!\n");
-        system("pause");
+        limparTela();
+        funcaoCliente();
     }
     fclose(funCliente);
 }
@@ -161,10 +163,12 @@ void excluirCliente() // exclui o cadastro de um usuário como cliente
                 fseek(funCliente, sizeof(clientes)* 0, SEEK_END);
                 printf("\nPerfil excluido com Sucesso! \n");
                 limparTela();
+                funcaoCliente();
             }
             else if (certeza == 'n')
             {
                 system("cls || clear");
+                funcaoCliente();
             }
         }
     }
@@ -172,6 +176,7 @@ void excluirCliente() // exclui o cadastro de um usuário como cliente
     {
         printf ("\nPerfil nao cadastrado!!\n");
         limparTela();
+        funcaoCliente();
     }
     fclose(funCliente);
 }
@@ -212,12 +217,14 @@ void alterarCliente() // faz a alteração de dados de um cliente cadastrado
 
             printf("\n Dados do perfil alterados com sucesso!");
             limparTela();
+            funcaoCliente();
         }
     }
     if (!encontrado)
     {
         printf("\nCodigo nao cadastrado!!\n");
         limparTela();
+        funcaoCliente();
     }
     fclose(funCliente);
 }
@@ -437,6 +444,319 @@ void alterarClientesProdutos() // altera os dados do cliente cadastrado
         printf("\nCodigo nao cadastrado!!\n");
         limparTela();
         consultaPerfil();
+    }
+    fclose(funCliente);
+}
+
+
+// funções abaixo criadas para CRUD DOS FUNCIONARIOS
+
+void consultarClienteFuncionarioRecepcao() // consulta informações sobre clientes cadastrados
+{
+    funCliente = fopen("Clientes.txt", "rb");
+    if(funCliente == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Cliente clientes;
+
+    int encontrado = 0,cod;
+
+    printf ("\nDigite o numero do seu CPF* sem pontuação..: \n");
+    scanf ("%d", &cod);
+
+    while (fread(&clientes, sizeof(clientes), 1, funCliente))
+    {
+
+    printf("Buscando .... \n\n");
+
+        if ((cod == clientes.codigo)  && (clientes.deletar != '*'))
+        {
+            printf("Usuario..: %d \nNome..: %-8s \nSalario..: R$ %4.2f\n", clientes.codigo,clientes.descricaoProduto,clientes.valorProduto);
+            encontrado = 1;
+            limparTela();
+            recepcao();
+        }
+    }
+    if (!encontrado)
+    {
+        printf("\nPerfil nao cadastrado!!\n");
+        limparTela();
+        recepcao();
+    }
+    fclose(funCliente);
+}
+
+void excluirClienteFuncionarioRecepcao() // exclui o cadastro de um usuário como cliente
+{
+   funCliente = fopen("Clientes.txt", "r+b");
+    if(funCliente == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Cliente clientes;
+
+    int cod, encontrado = 0;
+    char certeza;
+    printf ("\nDigite o CPF que deseja EXCLUIR..: \n");
+    scanf ("%d", &cod);
+
+    while (fread (&clientes, sizeof(clientes), 1, funCliente))
+    {
+        if (cod == clientes.codigo)
+        {
+            printf("Usuario..: %d \nNome..: %-8s  \nSalario..: R$ %4.2f\n\n",clientes.codigo, clientes.descricaoProduto, clientes.valorProduto);
+            encontrado = 1;
+
+            printf("\nTem certeza que quer excluir este perfil? s/n \n");
+            fflush(stdin);
+            scanf("%c", &certeza);
+            if (certeza == 's')
+            {
+                clientes.deletar = '*';
+                fseek(funCliente,sizeof(struct Cliente)*-1, SEEK_CUR);
+                fwrite(&clientes, sizeof(clientes), 1, funCliente);
+                fseek(funCliente, sizeof(clientes)* 0, SEEK_END);
+                printf("\nPerfil excluido com Sucesso! \n");
+                limparTela();
+                funcaoCliente();
+            }
+            else if (certeza == 'n')
+            {
+                system("cls || clear");
+                recepcao();
+            }
+        }
+    }
+    if (!encontrado)
+    {
+        printf ("\nPerfil nao cadastrado!!\n");
+        limparTela();
+        recepcao();
+    }
+    fclose(funCliente);
+}
+
+void alterarClienteFuncionariosRecepcao() // faz a alteração de dados de um cliente cadastrado
+{
+  funCliente = fopen("Clientes.txt", "r+b");
+    if(funCliente == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Cliente clientes;
+    int cod, encontrado = 0;
+    printf ("\nDigite o cpf que deseja alterar: \n");
+    scanf ("%d", &cod);
+
+    while (fread (&clientes, sizeof(clientes), 1, funCliente))
+    {
+        if (cod == clientes.codigo)
+        {
+            printf("Usuario..: %d \nnome..: %-8s \nSalario R$ %4.2f\n\n",clientes.codigo, clientes.descricaoProduto, clientes.valorProduto);
+            encontrado = 1;
+
+            fseek(funCliente,sizeof(struct Cliente)*-1, SEEK_CUR);
+            printf("\nDigite um novo nome..: \n");
+            fflush(stdin);
+            gets(clientes.descricaoProduto);
+            printf("\nDigite o novo Salario..: \n");
+            scanf("%f", &clientes.valorProduto);
+
+            fwrite(&clientes, sizeof(clientes), 1, funCliente);
+            fseek(funCliente, sizeof(clientes)* 0, SEEK_END);
+
+            printf("\n Dados do perfil alterados com sucesso!");
+            limparTela();
+            recepcao();
+        }
+    }
+    if (!encontrado)
+    {
+        printf("\nCodigo nao cadastrado!!\n");
+        limparTela();
+        recepcao();
+    }
+    fclose(funCliente);
+}
+
+
+// funções ACIMA criadas para CRUD DOS FUNCIONARIOS
+
+
+// funções abaixo criadas para CRUD DO ADM
+
+void adicionarClienteADM() // faz o cadastro do usuário como cliente
+{
+
+    int voltar;
+
+    funCliente = fopen("Clientes.txt", "ab");
+    if(funCliente == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+            struct Cliente clientes;
+
+            printf("Digite os numeros do seu cpf sem pontuação..: \n");
+            scanf("%d", &clientes.codigo);
+            printf("Informe seu nome completo..: \n");
+            fflush(stdin);
+            gets(clientes.descricaoProduto);
+            printf("informe seu salario..: \n");
+            scanf("%f", &clientes.valorProduto);
+
+    voltar = fwrite (&clientes, sizeof(clientes) ,1,funCliente);
+
+    if(voltar == 1)
+        {
+            printf("\nINFO. GRAVADAS COM SUCESSO!\n");
+            fclose(funCliente);
+            limparTela();
+            perfilClienteADM();
+        }
+
+}
+
+void consultarClienteADM() // consulta informações sobre clientes cadastrados
+{
+    funCliente = fopen("Clientes.txt", "rb");
+    if(funCliente == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Cliente clientes;
+
+    int encontrado = 0,cod;
+
+    printf ("\nDigite o numero do seu CPF* sem pontuação..: \n");
+    scanf ("%d", &cod);
+
+    while (fread(&clientes, sizeof(clientes), 1, funCliente))
+    {
+
+    printf("Buscando .... \n\n");
+
+        if ((cod == clientes.codigo)  && (clientes.deletar != '*'))
+        {
+            printf("Usuario..: %d \nNome..: %-8s \nSalario..: R$ %4.2f\n", clientes.codigo,clientes.descricaoProduto,clientes.valorProduto);
+            encontrado = 1;
+            limparTela();
+           perfilClienteADM();
+
+        }
+    }
+    if (!encontrado)
+    {
+        printf("\nPerfil nao cadastrado!!\n");
+        limparTela();
+        perfilClienteADM();
+    }
+    fclose(funCliente);
+}
+
+void excluirClienteADM() // exclui o cadastro de um usuário como cliente
+{
+   funCliente = fopen("Clientes.txt", "r+b");
+    if(funCliente == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Cliente clientes;
+
+    int cod, encontrado = 0;
+    char certeza;
+    printf ("\nDigite o CPF que deseja EXCLUIR..: \n");
+    scanf ("%d", &cod);
+
+    while (fread (&clientes, sizeof(clientes), 1, funCliente))
+    {
+        if (cod == clientes.codigo)
+        {
+            printf("Usuario..: %d \nNome..: %-8s  \nSalario..: R$ %4.2f\n\n",clientes.codigo, clientes.descricaoProduto, clientes.valorProduto);
+            encontrado = 1;
+
+            printf("\nTem certeza que quer excluir este perfil? s/n \n");
+            fflush(stdin);
+            scanf("%c", &certeza);
+            if (certeza == 's')
+            {
+                clientes.deletar = '*';
+                fseek(funCliente,sizeof(struct Cliente)*-1, SEEK_CUR);
+                fwrite(&clientes, sizeof(clientes), 1, funCliente);
+                fseek(funCliente, sizeof(clientes)* 0, SEEK_END);
+                printf("\nPerfil excluido com Sucesso! \n");
+                system("pause");
+                perfilClienteADM();
+            }
+            else if (certeza == 'n')
+            {
+                system("cls || clear");
+                perfilClienteADM();
+            }
+        }
+    }
+    if (!encontrado)
+    {
+        printf ("\nPerfil nao cadastrado!!\n");
+        limparTela();
+        perfilClienteADM();
+    }
+    fclose(funCliente);
+}
+
+void alterarClienteADM() // faz a alteração de dados de um cliente cadastrado
+{
+  funCliente = fopen("Clientes.txt", "r+b");
+    if(funCliente == NULL){
+        printf("\n\tATENCAO o arquivo não pode ser aberto");
+        getch();
+        exit(1);
+    }
+
+    struct Cliente clientes;
+    int cod, encontrado = 0;
+    printf ("\nDigite o cpf que deseja alterar: \n");
+    scanf ("%d", &cod);
+
+    while (fread (&clientes, sizeof(clientes), 1, funCliente))
+    {
+        if (cod == clientes.codigo)
+        {
+            printf("Usuario..: %d \nnome..: %-8s \nSalario R$ %4.2f\n\n",clientes.codigo, clientes.descricaoProduto, clientes.valorProduto);
+            encontrado = 1;
+
+            fseek(funCliente,sizeof(struct Cliente)*-1, SEEK_CUR);
+            printf("\nDigite um novo nome..: \n");
+            fflush(stdin);
+            gets(clientes.descricaoProduto);
+            printf("\nDigite o novo Salario..: \n");
+            scanf("%f", &clientes.valorProduto);
+
+            fwrite(&clientes, sizeof(clientes), 1, funCliente);
+            fseek(funCliente, sizeof(clientes)* 0, SEEK_END);
+
+            printf("\n Dados do perfil alterados com sucesso!");
+            limparTela();
+            perfilClienteADM();
+        }
+    }
+    if (!encontrado)
+    {
+        printf("\nCodigo nao cadastrado!!\n");
+        limparTela();
+       perfilClienteADM();
     }
     fclose(funCliente);
 }
