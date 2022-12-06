@@ -26,7 +26,8 @@ void funcaoFuncionarios()  // tela de login ou cadastro de funcionarios
     int funcionarios=0;
     char login, senha;
     system("cls || clear");
-    printf("\n\tSelecionado o perfil funcinario !!!\n\n");
+    printf("\n\tSelecionado o perfil funcinario !!!\n");
+    printf("Após feito o login tera acesso as informações de funcionario\n\n");
         printf("1.Login\n");
         printf("0.Voltar ao Menu\n");
         scanf("%i",&funcionarios);

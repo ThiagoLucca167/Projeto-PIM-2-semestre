@@ -31,6 +31,9 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Como recriar o codigo.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="FuncoesMenuInicial.c">
 			<Option compilerVar="CC" />
 		</Unit>

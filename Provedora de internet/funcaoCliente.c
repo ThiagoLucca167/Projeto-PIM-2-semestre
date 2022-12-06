@@ -243,7 +243,7 @@ void login() // Validação de login de um cliente usuário
 
     int encontrado = 0,cod;
 
-    printf ("\nLogin utilize seu CPF para entrar..: \n");
+    printf ("\nLogin utilize seu CPF para logar..: \n");
     scanf ("%d", &cod);
 
     while (fread(&clientes, sizeof(clientes), 1, funCliente))

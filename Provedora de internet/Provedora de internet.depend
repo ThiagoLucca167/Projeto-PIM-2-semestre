@@ -21,7 +21,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1669296704 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.c
+1670363348 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.c
 	"funcaoCliente.h"
 	<stdio.h>
 	<stdlib.h>
@@ -34,7 +34,7 @@
 
 1669285919 c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcaocliente.h
 
-1669285919 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\main.c
+1669932487 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -74,7 +74,7 @@
 	<ctype.h>
 	<conio.h>
 
-1669303431 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcoesmenuinicial.c
+1670362627 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcoesmenuinicial.c
 	"funcaoCliente.h"
 	<stdio.h>
 	<stdlib.h>
@@ -190,7 +190,7 @@
 	<ctype.h>
 	<conio.h>
 
-1669303628 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcaofuncionario.c
+1670363047 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\funcaofuncionario.c
 	"funcaoCliente.h"
 	<stdio.h>
 	<stdlib.h>
@@ -274,4 +274,9 @@
 	<conio.h>
 	<ctype.h>
 	<dos.h>
+
+1669932580 source:c:\users\thiago lucca\desktop\projeto-pim-2-semestre\provedora de internet\como recriar o codigo.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
 

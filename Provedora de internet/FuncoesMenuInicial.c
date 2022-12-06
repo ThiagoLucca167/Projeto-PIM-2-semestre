@@ -11,13 +11,13 @@
 void FuncoesMenuInicial() // primeira tela de acesso do usuário
 {
     int validacoes;
-    printf("\nMENU INICIAL*\n\nSelecione o que fazer...: \n\n");
-    printf("1. Cliente\n");
-    printf("2. Funcionario\n");
-    printf("3. Administrador\n");
+    printf("\nMENU INICIAL\nSelecione seu perfil ou Selecione alguma função...:\n\n");
+    printf("1. Perfil Cliente\n");
+    printf("2. Perfil Funcionario\n");
+    printf("3. Perfil de Administrador\n");
     printf("4. Sobre Nós\n");
-    printf("5. Participantes\n");
-    printf("6. Configurações de tela\n");
+    printf("5. Configurações de tela\n");
+    printf("6. Participantes do projeto\n");
     printf("0. Sair\n");
     scanf("%i",&validacoes);
 
@@ -35,10 +35,10 @@ void FuncoesMenuInicial() // primeira tela de acesso do usuário
     case 4:
         sobreNos();
         break;
-    case 5:
+    case 6:
         participantes();
         break;
-    case 6:
+    case 5:
         system("cls || clean");
        printf("\n\tSelecionada Configurações de tela...: \n\n");
        configuracaoTela();
